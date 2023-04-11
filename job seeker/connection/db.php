@@ -1,5 +1,5 @@
 <?php
-$server="localhost:3307";
+$server="localhost:3306";
 $username="root";
 $password="";
 $database="job_recommend";
