@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
-    <title>JOB Vetau</title>
+    <title>Job Chaiyo?</title>
 
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
@@ -17,24 +17,28 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
 
-    </head>
-    
-    <body>
-    
+    <!-- tailwind css -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet" /> -->
+
+</head>
+
+<body>
+
     <!-- ***** Preloader Start ***** -->
     <div id="js-preloader" class="js-preloader">
-      <div class="preloader-inner">
-        <span class="dot"></span>
-        <div class="dots">
-          <span></span>
-          <span></span>
-          <span></span>
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-      </div>
     </div>
     <!-- ***** Preloader End ***** -->
-    
-    
+
+
     <!-- ***** Header Area Start ***** -->
     <header class="header-area header-sticky">
         <div class="container">
@@ -52,8 +56,8 @@
                             <li><a href="#our-classes" class="active">News</a></li>
                             <li><a href="./admin/admin_login.php" class="active">ADMIN</a></li>
                             <li><a href="./employer/registration.php">POST JOB</a></li>
-                            <li><a href="./job seeker/registration.php">Apply JOB</a></li> 
-                        </ul>        
+                            <li><a href="./job seeker/registration.php">Apply JOB</a></li>
+                        </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
@@ -64,7 +68,6 @@
         </div>
     </header>
     <!-- ***** Header Area End ***** -->
-
     <!-- ***** Main Banner Area Start ***** -->
     <div class="main-banner" id="top">
         <video autoplay muted loop id="bg-video">
@@ -75,12 +78,20 @@
             <div class="caption">
                 <h6>WELCOME TO JOB PORTAL</h6>
                 <h2>Find the perfect <em>Job</em></h2>
+
+                <br>
+                <form class="d-flex justify-content-center" role="search">
+                    <input style="width : 400px;" class="form-control me-2" type="search" placeholder="Find Your Next Job." aria-label="Search">
+                  &nbsp;  <button  class="btn btn-outline-success" style="color : orangered; border-color: orangered; " type="submit">Search</button>
+                </form>
+             
             </div>
         </div>
     </div>
     <!-- ***** Main Banner Area End ***** -->
 
-   <!-- ***** Cars Starts ***** -->
+    <!-- ***** Cars Starts ***** -->
+
     <section class="section" id="trainers">
         <div class="container">
             <div class="row">
@@ -93,34 +104,36 @@
                 </div>
             </div>
             <div class="row">
-            <?php
-            include 'connection/db.php';
-            $sql = "select * from job_master";
-
-            // Execute query
-            $result = mysqli_query($conn,$sql);
-
-            // Loop through each records
-            while ($row = mysqli_fetch_array($result)) {
-                ?>
-                <div class="col-lg-4">
-                    <a href="./job seeker/registration.php"><div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="assets/images/job.jpeg" alt="job">
-                        </div>
-                        <div class="down-content">
-                            <span>Expected Salary : RS <?php echo $row['ExpectedSalary']; ?></span>
-
-                            <h4><?php echo $row['CompanyName']; ?></h4>
-
-                            <p><?php echo $row['JobTitle'];?> &nbsp;/&nbsp; <?php echo $row['Description'];?></p>
-                        </div>
-                    </div></a>
-                </div>
                 <?php
-            }
-            ?>
-               
+                include 'connection/db.php';
+                $sql = "select * from job_master";
+
+                // Execute query
+                $result = mysqli_query($conn, $sql);
+
+                // Loop through each records
+                while ($row = mysqli_fetch_array($result)) {
+                ?>
+                    <div class="col-lg-4">
+                        <a href="./job seeker/registration.php">
+                            <div class="trainer-item">
+                                <div class="image-thumb">
+                                    <img src="assets/images/job.jpeg" alt="job">
+                                </div>
+                                <div class="down-content">
+                                    <span>Expected Salary : RS <?php echo $row['ExpectedSalary']; ?></span>
+
+                                    <h4><?php echo $row['CompanyName']; ?></h4>
+
+                                    <p><?php echo $row['JobTitle']; ?> &nbsp;/&nbsp; <?php echo $row['Description']; ?></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <?php
+                }
+                ?>
+
             </div>
         </div>
     </section>
@@ -140,7 +153,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="cta-content text-center">
-                        <p>Our Job  Portal is also designed for the various employer who required to recruit employees in their organization. Employer can registered himself on the web portal and then he can upload information of various job vacancies in their organization. Employeer can view the applications of Job Seeker and send call latter to the job seekers.</p>
+                        <p>Our Job Portal is also designed for the various employer who required to recruit employees in their organization. Employer can registered himself on the web portal and then he can upload information of various job vacancies in their organization. Employeer can view the applications of Job Seeker and send call latter to the job seekers.</p>
 
                         <p>It provides facility to the Job Seeker to search for various jobs as per his qualification. Here Job Seeker can registered himself on the web portal and create his profile along with his educational information. Job Seeker can search various jobs and apply for the Job.</p>
                     </div>
@@ -162,27 +175,27 @@
                 </div>
             </div>
             <div class="row" id="tabs">
-            <?php
-            include 'connection/db.php';
-            $sql = "select * from news_master";
+                <?php
+                include 'connection/db.php';
+                $sql = "select * from news_master";
 
-            // Execute query
-            $result = mysqli_query($conn,$sql);
+                // Execute query
+                $result = mysqli_query($conn, $sql);
 
-            // Loop through each records
-            while ($row = mysqli_fetch_array($result)) {
-            
-            ?>
-              <div class="col-lg-4">
-                <ul>
-                  <li><?php echo $row['News']; ?></li>
-                  <li><?php echo $row['NewsDate']; ?></li>
-                </ul>
-              </div>
-              <?php
-            }
-            ?>
-            
+                // Loop through each records
+                while ($row = mysqli_fetch_array($result)) {
+
+                ?>
+                    <div class="col-lg-4">
+                        <ul>
+                            <li><?php echo $row['News']; ?></li>
+                            <li><?php echo $row['NewsDate']; ?></li>
+                        </ul>
+                    </div>
+                <?php
+                }
+                ?>
+
             </div>
         </div>
     </section>
@@ -265,14 +278,14 @@
         </div>
     </section>
     <!-- ***** Testimonials Item End ***** -->
-    
+
     <!-- ***** Footer Start ***** -->
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <p>
-                        Copyright © 2021 job vetau.com
+                        bmc JOb Station © 2022 jobstation.com
                     </p>
                 </div>
             </div>
@@ -290,12 +303,23 @@
     <script src="assets/js/scrollreveal.min.js"></script>
     <script src="assets/js/waypoints.min.js"></script>
     <script src="assets/js/jquery.counterup.min.js"></script>
-    <script src="assets/js/imgfix.min.js"></script> 
-    <script src="assets/js/mixitup.js"></script> 
+    <script src="assets/js/imgfix.min.js"></script>
+    <script src="assets/js/mixitup.js"></script>
     <script src="assets/js/accordions.js"></script>
-    
+
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+</body>
 
-  </body>
 </html>

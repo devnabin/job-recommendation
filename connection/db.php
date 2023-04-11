@@ -4,17 +4,14 @@ $username="root";
 $password="";
 $database="job_recommend";
 $conn=mysqli_connect($server, $username, $password, $database);
-if($conn)
-{
+
+if($conn){
 ?>
 <script>
-	alert('connection successful');
+	// alert('connection successful > main connection');
 </script>
 <?php
-}
-
-else
-{
+}else{
 echo mysqli_connect_error();
 }
 ?>
