@@ -309,17 +309,6 @@
 
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        clifford: '#da373d',
-                    }
-                }
-            }
-        }
-    </script>
-</body>
+  </body>
 
 </html>
