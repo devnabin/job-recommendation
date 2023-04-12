@@ -770,12 +770,12 @@ schedule
 --------------------------------------------- 
 */
 
-.section-bg {
+/* .section-bg {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-}
+} */
 
 .section-bg:before {
   content:'';

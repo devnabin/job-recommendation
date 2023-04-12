@@ -38,7 +38,7 @@ session_start();
       <input type="password" id="pass" name="pass" class="form-control" placeholder="Password" required>
       <input type="submit" name="submit"id="submit" value="Sign in" class="btn btn-lg btn-primary btn-block" type="submit">
       <a href="../index.php">Return to Home</a>
-      <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
+      <p class="mt-5 mb-3 text-muted">&copy; 2023-2024</p>
     </form>
   </body>
 </html>
