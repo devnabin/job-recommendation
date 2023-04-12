@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
-    <title>Job Chaiyo?</title>
+    <title>bmc jobstation</title>
 
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
@@ -46,7 +46,7 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.php" class="logo">Job Vetau</a>
+                        <a href="index.php" class="logo">Job Station</a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
@@ -71,12 +71,12 @@
     <!-- ***** Main Banner Area Start ***** -->
     <div class="main-banner" id="top">
         <video autoplay muted loop id="bg-video">
-            <source src="assets/images/video.mp4" type="video/mp4" />
+            <source src="assets/images/video3.mp4" type="video/mp4" />
         </video>
 
         <div class="video-overlay header-text">
             <div class="caption">
-                <h6>WELCOME TO JOB PORTAL</h6>
+                <h6>WELCOME TO Bmc JOB STATION</h6>
                 <h2>Find the perfect <em>Job</em></h2>
 
                 <br>
@@ -118,7 +118,7 @@
                         <a href="./job seeker/registration.php">
                             <div class="trainer-item">
                                 <div class="image-thumb">
-                                    <img src="assets/images/job.jpeg" alt="job">
+                                    <img src="assets/images/job.jpg" alt="job">
                                 </div>
                                 <div class="down-content">
                                     <span>Expected Salary : RS <?php echo $row['ExpectedSalary']; ?></span>
@@ -145,7 +145,7 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading dark-bg">
                         <h2>Read <em>About Us</em></h2>
-                        <img src="assets/images/line-dec.png" alt="">
+                        <!-- <img src="assets/images/line-dec.png" alt=""> -->
                         <p>If opportunity doesn't knock, build a door.</p>
                     </div>
                 </div>
@@ -234,19 +234,19 @@
                     <ul class="features-items">
                         <li class="feature-item">
                             <div class="left-icon">
-                                <img src="assets/images/dhakal.jpeg" alt="First One" style="width:150px ; height:100px">
+                                <img src="assets/images/dummy.png" alt="First One" style="width:150px ; height:100px">
                             </div>
                             <div class="right-content">
-                                <h4>Deepak</h4>
+                                <h4>Nabin</h4>
                                 <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitati!"</em></p>
                             </div>
                         </li>
                         <li class="feature-item">
                             <div class="left-icon">
-                                <img src="assets/images/deepika.jpg" alt="second one" style="width:150px ; height:100px">
+                                <img src="assets/images/dummy.png" alt="second one" style="width:150px ; height:100px">
                             </div>
                             <div class="right-content">
-                                <h4>Deepika</h4>
+                                <h4>Bimal</h4>
                                 <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitat"</em></p>
                             </div>
                         </li>
@@ -256,23 +256,14 @@
                     <ul class="features-items">
                         <li class="feature-item">
                             <div class="left-icon">
-                                <img src="assets/images/amrit.jpeg" alt="fourth muscle" style="width:150px ; height:100px">
+                                <img src="assets/images/dummy.png" alt="fourth muscle" style="width:150px ; height:100px">
                             </div>
                             <div class="right-content">
-                                <h4>Amrit</h4>
+                                <h4>Chetan</h4>
                                 <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessit"</em></p>
                             </div>
                         </li>
-                        <li class="feature-item">
-                            <div class="left-icon">
-                                <img src="assets/images/bandana.jpg" alt="training fifth" style="width:150px ; height:100px">
-                            </div>
-                            <div class="right-content">
-                                <h4>Bandana</h4>
-                                <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitat"</em></p>
-                            </div>
-                        </li>
-                    </ul>
+                                            </ul>
                 </div>
             </div>
         </div>
@@ -285,7 +276,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <p>
-                        bmc JOb Station © 2022 jobstation.com
+                        bmc JOb Station © 2023 jobstation.com
                     </p>
                 </div>
             </div>
