@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2023 at 03:39 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Apr 28, 2023 at 05:29 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,18 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `jagir_vetau`
+-- Database: `job_recommend`
 --
-
-DELIMITER $$
---
--- Procedures
---
-CREATE DEFINER=`` PROCEDURE `news_list` ()   BEGIN SELECT * FROM news_master; END$$
-
-CREATE DEFINER=`` PROCEDURE `vacancy_list` ()   Begin select * from job_master;End$$
-
-DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -41,7 +31,7 @@ CREATE TABLE `about_myself` (
   `aid` int(11) NOT NULL,
   `jobseek_id` int(11) NOT NULL,
   `about_me` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `about_myself`
@@ -49,7 +39,8 @@ CREATE TABLE `about_myself` (
 
 INSERT INTO `about_myself` (`aid`, `jobseek_id`, `about_me`) VALUES
 (6, 4, 'Deepika thapa || Chaling  ||  Bhaktapur|| Experience:|| Accountant||finance Manager||Marketing|| dipikathapa@gmail.com||  9870653642||  23 years old|| female ||BBA|| MBA ||Tribhuvan University || 85 percentage.'),
-(13, 3, 'KIran Prajapati Surabinayak Bhaktapur lecturer||front end developer||Web developer||React Js||HTML5||CSS3 Kp@gmail.com 1234567890 23 years old Female BSC CSIT BE.Computer Engineering Kathmandu University 80 percentage.');
+(13, 3, 'KIran Prajapati Surabinayak Bhaktapur lecturer||front end developer||Web developer||React Js||HTML5||CSS3 Kp@gmail.com 1234567890 23 years old Female BSC CSIT BE.Computer Engineering Kathmandu University 80 percentage.'),
+(14, 5, 'abc bkt bkt ASDF nbn@gmail.com 9812870775 0 years old ASDFAS ASDF    percentage.');
 
 --
 -- Triggers `about_myself`
@@ -72,14 +63,14 @@ CREATE TABLE `admin_login` (
   `admin_email` varchar(255) NOT NULL,
   `admin_pass` varchar(255) NOT NULL,
   `admin_username` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin_login`
 --
 
 INSERT INTO `admin_login` (`id`, `admin_email`, `admin_pass`, `admin_username`) VALUES
-(1, 'suwalbandana3@gmail.com', '1234', 'Bandana');
+(1, 'nabin@gmail.com', '123', 'nabin');
 
 -- --------------------------------------------------------
 
@@ -93,7 +84,7 @@ CREATE TABLE `application_master` (
   `JobId` int(11) NOT NULL,
   `Status` varchar(255) NOT NULL,
   `Description` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `application_master`
@@ -127,7 +118,7 @@ CREATE TABLE `employer_reg` (
   `Password` varchar(255) NOT NULL,
   `Question` varchar(255) NOT NULL,
   `Answer` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `employer_reg`
@@ -135,8 +126,9 @@ CREATE TABLE `employer_reg` (
 
 INSERT INTO `employer_reg` (`Employer_Id`, `CompanyName`, `ContactPerson`, `Address`, `City`, `Email`, `Mobile`, `Area_Work`, `Status`, `UserName`, `Password`, `Question`, `Answer`) VALUES
 (13, 'Ainsoft Limited', 'Mr. Hari Krishna Acharya', 'Balkhu', 'Kathmandu', 'ingo@ainsoft.com', '1234567890', 'Software Company', 'Confirm', 'Hari', 'hari', 'What is your pet Name?', 'Cat'),
-(14, 'Broadway Infosys', 'Ram Prasad', 'Duwakot', 'Bhaktapur', 'broadway@gmail.com', '1234569872', 'Software', 'Confirm', 'Ram', 'ram', 'What is your pet Name?', 'ram'),
-(15, 'Softech Foundation', 'Manish Shah', 'Kamalbinayak', 'Bhaktapur', 'info@gmail.com', '2345678910', 'Software Company', 'Confirm', 'Man', 'men', 'What is your pet Name?', 'dog');
+(14, 'Broadway Infosys', 'Ram Prasad', 'Duwakot', 'Bhaktapur', 'broadway@gmail.com', '1234569872', 'Software', 'Confirm', 'ram', 'ram', 'What is your pet Name?', 'ram'),
+(15, 'Softech Foundation', 'Manish Shah', 'Kamalbinayak', 'Bhaktapur', 'info@gmail.com', '2345678910', 'Software Company', 'Confirm', 'Man', 'men', 'What is your pet Name?', 'dog'),
+(16, 'abc', 'nbn', 'bkt', 'bkt', 'nbn@gmail.com', '9812870775', 'bch', 'Confirm', 'nbn', 'nbn', 'What is your pet Name?', 'sony');
 
 -- --------------------------------------------------------
 
@@ -149,7 +141,7 @@ CREATE TABLE `feedback` (
   `JobSeekId` int(11) NOT NULL,
   `Feedback` varchar(255) NOT NULL,
   `FeedbakDate` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `feedback`
@@ -159,7 +151,10 @@ INSERT INTO `feedback` (`FeedbackId`, `JobSeekId`, `Feedback`, `FeedbakDate`) VA
 (1, 3, 'Thank you very much', '21/05/14'),
 (2, 3, 'Hello....Job Vetau', '21/05/15'),
 (3, 4, 'Thank you jagir vetau !!!', '21/07/29'),
-(4, 3, 'kfdjgjg', '23/01/09');
+(4, 3, 'kfdjgjg', '23/01/09'),
+(5, 5, 'very good hahah', '23/04/15'),
+(6, 5, 'thank you jop portal this site help me to found my dream job in google\r\n', '23/04/15'),
+(7, 3, 'as a job seeker i found this site really helpful', '23/04/16');
 
 -- --------------------------------------------------------
 
@@ -174,7 +169,7 @@ CREATE TABLE `jobseeker_education` (
   `University` varchar(255) NOT NULL,
   `PassingYear` mediumint(9) NOT NULL,
   `Percentage` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `jobseeker_education`
@@ -184,7 +179,9 @@ INSERT INTO `jobseeker_education` (`EduId`, `JobSeekId`, `Degree`, `University`,
 (1, 3, 'BE.Computer Engineering', 'Kathmandu University', 2011, 80),
 (2, 4, 'MBA', 'Tribhuvan University', 2018, 85),
 (4, 3, 'MBA ', 'kathmandu university', 2013, 78),
-(6, 3, 'PHD', 'Atlantong university', 2015, 87);
+(6, 3, 'PHD', 'Atlantong university', 2015, 87),
+(7, 5, 'BSC', 'The hack university', 2014, 50),
+(8, 3, 'BSC', 'The Multi hack university', 1993, 99);
 
 --
 -- Triggers `jobseeker_education`
@@ -219,15 +216,16 @@ CREATE TABLE `jobseeker_reg` (
   `Password` varchar(255) NOT NULL,
   `Question` varchar(255) NOT NULL,
   `Answer` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `jobseeker_reg`
 --
 
 INSERT INTO `jobseeker_reg` (`JobSeekId`, `JobSeekerName`, `Address`, `City`, `Email`, `Mobile`, `Qualification`, `Experience`, `Gender`, `BirthDate`, `age`, `Resume`, `Status`, `Username`, `Password`, `Question`, `Answer`) VALUES
-(3, 'KIran Prajapati', 'Surabinayak', 'Bhaktapur', 'Kp@gmail.com', '1234567890', 'BSC CSIT', 'lecturer||front end developer||Web developer||React Js||HTML5||CSS3', 'Female', '1997-11-14', 23, 'CV_Kiran_Prajapati (1).pdf', 'Confirm', 'Kiran', 'kiran', 'What is your pet Name?', 'cat'),
-(4, 'Deepika thapa', 'Chaling ', 'Bhaktapur', 'dipikathapa@gmail.com', '9870653642', 'BBA', 'Accountant||finance Manager||Marketing', 'female', '1997-03-19', 23, 'Syllabus.pdf', 'Confirm', 'dipika', 'dipu', 'What is your pet Name?', 'cat');
+(3, 'Bimal Shrestha', 'Surabinayak', 'Bhaktapur', 'bimal@gmail.com', '1234567890', 'BSC CSIT', 'lecturer||front end developer||Web developer||React Js||HTML5||CSS3', 'Male', '1997-11-14', 23, 'Syllabus.pdf', 'Confirm', 'bimal', 'bimal', 'What is your pet Name?', 'cat'),
+(4, 'Chetan budhathoki', 'sallaghari', 'Bhaktapur', 'chetan@gmail.com', '9870653642', 'BBA', 'Accountant||finance Manager||Marketing', 'Male', '1997-03-19', 23, 'Syllabus.pdf', 'Confirm', 'chetan', 'chetan', 'What is your pet Name?', 'cat'),
+(5, 'Nabin Bhandari', 'bkt', 'bkt', 'nbn@gmail.com', '9812870775', 'bbs', 'Accountant||finance Manager||Marketing', 'Male', '2023-04-19', 25, '', 'Confirm', 'nabin', 'nabin', 'What is your pet Name?', 'nbn');
 
 -- --------------------------------------------------------
 
@@ -245,19 +243,22 @@ CREATE TABLE `job_master` (
   `Requirement` text NOT NULL,
   `Description` varchar(255) NOT NULL,
   `ExpectedSalary` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `job_master`
 --
 
 INSERT INTO `job_master` (`JobId`, `CompanyName`, `JobTitle`, `Age`, `Vacancy`, `MinQualification`, `Requirement`, `Description`, `ExpectedSalary`) VALUES
+(0, 'Bhairav IT solution', 'Cleaner', '20', 1, 'House Wife', 'A lady candidate || Good nature || Friendly', 'A lady Candidate is required for our it company who can take care of our company.', '20000'),
+(1, 'Bhairav IT solution', 'Frontend Developer', '18', 2, 'Bachelor in Information Technology, IT', 'we are looking for a very energetic and technology passionate individual for the post of frontend developer in our company, \r\none needs to have good understanding of core programming concepts and must have work in a required field for around or more than two years', 'we are looking for a very energetic and technology passionate individual for the post of frontend developer in our company, \r\none needs to have good understanding of core programming concepts and must have work in a required field for around or more than ', '50000'),
 (2, 'Ainsoft Limited', 'Software Professional Required', '20-30', 5, 'MIT', '2 years experience as  IT officer,  should have knowledge of software pragrams etc', 'ASP.net', '50,000'),
 (3, 'Broadway Infosys', 'Marketing Executive', '25-35', 4, 'BBS', 'should be proficent in marketing, should have at least 3 year experience of marketing manager', 'Sales and Marketing', '20000'),
 (4, 'Ainsoft Limited', 'Social Media Marketing', '23-28', 2, 'B.C.A', 'Bachelor’s or master’s degree in marketing or a related field ,Proven working experience in digital marketing, particularly within the industry ,Demonstrable experience leading and managing SEO/SEM, marketing database, and social media advertising campaigns, Solid knowledge of website and marketing analytics tools (e.g., Google Analytics, NetInsight, Omniture, WebTrends, SEMRush, etc.),Experience in setting up and optimizing PPC campaigns on all major search engines,Working knowledge of HTML, CSS, and JavaScript development and constraints', 'Digital Marketing', '20000'),
 (5, 'Broadway Infosys', 'Accountant', '20-28', 1, 'BBA', 'working experience at bank or any financial institution for at least 1 year,  shoud have good knowlege of accounting', 'Handle finance', '30000'),
 (6, 'Softech Foundation', 'Supervisor required', '25-30', 3, 'MSC IT', 'Degree in computer science, IT or similar,Degree or completed courses in business administration would be advantageous.,Practical experience installing and maintaining systems is recommended., At least 2 year experience as it Supervisor', 'managing project', '25000'),
 (7, 'Ainsoft Limited', 'Java Developer', '20-30', 4, 'BIT', 'klsdjdfhdjnvnhdfj', 'it and telecommunication', '50000'),
+(10, 'Bhaktapur Cancer Hospital', 'Health Assistant', '20', 1, 'Bachelor in Nursing', 'we are looking for good health worker working on related field ', 'Nursing from Medical field and somthing related field.', '12500'),
 (12, 'Ainsoft Limited', 'Graphics designer', '20-30', 4, 'BIT', 'fjnkfvfbhf', 'fdhlkffh', '50000');
 
 -- --------------------------------------------------------
@@ -271,7 +272,7 @@ CREATE TABLE `job_specification` (
   `jobid` int(11) NOT NULL,
   `job_title` varchar(255) NOT NULL,
   `Specification` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `job_specification`
@@ -296,13 +297,14 @@ CREATE TABLE `news_master` (
   `NewsId` int(11) NOT NULL,
   `News` varchar(255) NOT NULL,
   `NewsDate` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `news_master`
 --
 
 INSERT INTO `news_master` (`NewsId`, `News`, `NewsDate`) VALUES
+(0, 'asdasdADSadsASD', ''),
 (2, 'Stay Safe', '2021-05-12'),
 (3, 'Happy 2021', '2021-05-27'),
 (4, 'Happy New Year', '2022-01-01');
@@ -322,7 +324,7 @@ CREATE TABLE `walkin_master` (
   `Description` varchar(255) NOT NULL,
   `InterviewDate` varchar(255) NOT NULL,
   `InterviewTime` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `walkin_master`
@@ -412,7 +414,7 @@ ALTER TABLE `walkin_master`
 -- AUTO_INCREMENT for table `about_myself`
 --
 ALTER TABLE `about_myself`
-  MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `admin_login`
@@ -430,71 +432,25 @@ ALTER TABLE `application_master`
 -- AUTO_INCREMENT for table `employer_reg`
 --
 ALTER TABLE `employer_reg`
-  MODIFY `Employer_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `Employer_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `FeedbackId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `FeedbackId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `jobseeker_education`
 --
 ALTER TABLE `jobseeker_education`
-  MODIFY `EduId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `EduId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `jobseeker_reg`
 --
 ALTER TABLE `jobseeker_reg`
-  MODIFY `JobSeekId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `job_master`
---
-ALTER TABLE `job_master`
-  MODIFY `JobId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT for table `job_specification`
---
-ALTER TABLE `job_specification`
-  MODIFY `jobspec_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `news_master`
---
-ALTER TABLE `news_master`
-  MODIFY `NewsId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `walkin_master`
---
-ALTER TABLE `walkin_master`
-  MODIFY `WalkInId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `about_myself`
---
-ALTER TABLE `about_myself`
-  ADD CONSTRAINT `about_myself_ibfk_1` FOREIGN KEY (`jobseek_id`) REFERENCES `jobseeker_reg` (`JobSeekId`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `feedback`
---
-ALTER TABLE `feedback`
-  ADD CONSTRAINT `feedback_ibfk_1` FOREIGN KEY (`JobSeekId`) REFERENCES `jobseeker_reg` (`JobSeekId`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `jobseeker_education`
---
-ALTER TABLE `jobseeker_education`
-  ADD CONSTRAINT `JobSeekId` FOREIGN KEY (`JobSeekId`) REFERENCES `jobseeker_reg` (`JobSeekId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  MODIFY `JobSeekId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
