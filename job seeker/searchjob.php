@@ -11,7 +11,7 @@ if (!function_exists("GetSQLValueString")) {
   function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "")
   {
 
-    // by chat gput 😁
+    // chat gpt
     $theValue = stripslashes($theValue);
 
     // our old code

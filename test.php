@@ -77,14 +77,14 @@
         <div class="video-overlay header-text">
             <div class="caption">
                 <h6>WELCOME TO Bmc JOB STATION</h6>
-                <h2>Find the perfect <em>Job for you.</em></h2>
+                <h2>Find the perfect <em>Job</em></h2>
 
                 <br>
                 <form class="d-flex justify-content-center" role="search">
                     <input style="width : 400px;" class="form-control me-2" type="search" placeholder="Find Your Next Job." aria-label="Search">
-                  &nbsp;  <button  class="btn btn-outline-success" style="color : orangered; border-color: orangered; " type="submit">Search</button>
+                    &nbsp; <button class="btn btn-outline-success" style="color : orangered; border-color: orangered; " type="submit">Search</button>
                 </form>
-             
+
             </div>
         </div>
     </div>
@@ -137,30 +137,57 @@
             </div>
         </div>
     </section>
-    <!-- ***** Cars Ends ***** -->
+    <!-- testomonial -->
+    <style>
+        /* .testimonial-container {
+    background-color: rgba(0, 0, 0, 0.2);
+  } */
+    </style>
 
-    <section class="section section-bg" id="schedule" style="background-image: url(assets/images/about-fullscreen-1-1920x700.jpg)">
+    <div class="container-fluid bg-dark testimonial-container py-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
-                    <div class="section-heading dark-bg">
-                        <h2><ul style=" text-decoration-color: red;">Read About Us</ul>  </h2>
-                        <!-- <img src="assets/images/line-dec.png" alt=""> -->
-                        <p>If opportunity doesn't knock, build a door.</p>
+                    <div class="section-heading">
+                        <h2><em>User Testimonials</em></h2>
+                        <img src="assets/images/line-dec.png" alt="">
+                        <p>In this section, we display news published by admin</p>
                     </div>
                 </div>
             </div>
+            <!-- <h2 class="text-light">User </h2> -->
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="cta-content text-center">
-                        <p>Our Job Portal is also designed for the various employer who required to recruit employees in their organization. Employer can registered himself on the web portal and then he can upload information of various job vacancies in their organization. Employeer can view the applications of Job Seeker and send call latter to the job seekers.</p>
+                <?php
+                $testimonials = array(
+                    array(
+                        "name" => "John Doe",
+                        "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac mi vel sem porta scelerisque. Duis quis nunc luctus, posuere arcu a, placerat mi.",
+                        "image" => "https://dummyimage.com/300x300/ccc/000&text=John+Doe"
+                    ),
+                    array(
+                        "name" => "Jane Smith",
+                        "content" => "Vestibulum eget posuere ante. Morbi tempor libero vitae orci consequat viverra. Aenean dapibus mi vel leo malesuada, vel semper quam pellentesque.",
+                        "image" => "https://dummyimage.com/300x300/ccc/000&text=Jane+Smith"
+                    )
+                );
 
-                        <p>It provides facility to the Job Seeker to search for various jobs as per his qualification. Here Job Seeker can registered himself on the web portal and create his profile along with his educational information. Job Seeker can search various jobs and apply for the Job.</p>
-                    </div>
-                </div>
+                foreach ($testimonials as $testimonial) {
+                    echo '<div class="col-lg-6 mb-4">';
+                    echo '<div class="card h-100">';
+                    echo '<div class="card-body">';
+                    echo '<img src="' . $testimonial["image"] . '" class="img-fluid mb-3" alt="' . $testimonial["name"] . '">';
+                    echo '<p class="card-text">' . $testimonial["content"] . '</p>';
+                    echo '<p class="card-text"><small class="text-muted">' . $testimonial["name"] . '</small></p>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+                ?>
             </div>
         </div>
-    </section>
+    </div>
+    <!-- testomonial end -->
+
 
     <!-- ***** Blog Start ***** -->
     <section class="section" id="our-classes">
@@ -168,8 +195,8 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
-                        <h2>Read our News Latter</h2>
-                        <!-- <img src="assets/images/line-dec.png" alt=""> -->
+                        <h2>Read our <em>News</em></h2>
+                        <img src="assets/images/line-dec.png" alt="">
                         <p>In this section, we display news published by admin</p>
                     </div>
                 </div>
@@ -201,14 +228,16 @@
     </section>
     <!-- ***** Blog End ***** -->
 
+
+
     <!-- ***** Call to Action Start ***** -->
     <section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="cta-content">
-                        <h2>Send us a message</h2>
-                        <p>If you are interested, feel free to mail us at jobstation@gmail.com</p>
+                        <h2>Send us a <em>message</em></h2>
+                        <p>If you are interested, feel free to mail us at jobvetau@gmail.com</p>
                         <div class="main-button">
                             <a href="https://www.gmail.com" target="_blank" style="color:white">Contact us</a>
                         </div>
@@ -225,8 +254,8 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
-                        <h2><u>Read our Testimonials</u></h2>
-                        <!-- <img src="assets/images/line-dec.png" alt="waves"> -->
+                        <h2>Read our <em>Testimonials</em></h2>
+                        <img src="assets/images/line-dec.png" alt="waves">
                         <p>What our cliet say</p>
                     </div>
                 </div>
@@ -263,12 +292,78 @@
                                 <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessit"</em></p>
                             </div>
                         </li>
-                                            </ul>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
     <!-- ***** Testimonials Item End ***** -->
+    <!-- ***** Cars Ends ***** -->
+
+    <section class="section section-bg" id="schedule" style="background-image: url(assets/images/about-fullscreen-1-1920x700.jpg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-heading dark-bg">
+                        <h2>Read <em>About Us</em></h2>
+                        <!-- <img src="assets/images/line-dec.png" alt=""> -->
+                        <p>If opportunity doesn't knock, build a door.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cta-content text-center">
+                        <p>Our Job Portal is also designed for the various employer who required to recruit employees in their organization. Employer can registered himself on the web portal and then he can upload information of various job vacancies in their organization. Employeer can view the applications of Job Seeker and send call latter to the job seekers.</p>
+
+                        <p>It provides facility to the Job Seeker to search for various jobs as per his qualification. Here Job Seeker can registered himself on the web portal and create his profile along with his educational information. Job Seeker can search various jobs and apply for the Job.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- location about us -->
+    <div class="container py-5">
+        <h2 class="text-center mb-5">Contact Us</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h3>Our Address</h3>
+                <address>
+                    123 Main St<br>
+                    New York, NY 10001<br>
+                    USA
+                </address>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h3>Contact Number</h3>
+                <ul class="list-unstyled">
+                    <li><i class="bi bi-telephone-fill me-3"></i>+1 (123) 456-7890</li>
+                    <li><i class="bi bi-envelope-fill me-3"></i><a href="mailto:info@example.com">info@example.com</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h3>Our Staff</h3>
+                <div class="card">
+                    <img src="https://dummyimage.com/400x400/000/fff&text=Staff+Image" class="card-img-top rounded-circle" alt="Staff Image">
+                    <div class="card-body">
+                        <h5 class="card-title">John Doe</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-telephone-fill me-3"></i>+1 (123) 456-7890</li>
+                            <li><i class="bi bi-envelope-fill me-3"></i><a href="mailto:john@example.com">john@example.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- location end -->
+
+
+
+
+
+
 
     <!-- ***** Footer Start ***** -->
     <footer>
@@ -300,6 +395,6 @@
 
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
-  </body>
+</body>
 
 </html>
