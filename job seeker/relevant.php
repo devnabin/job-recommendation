@@ -33,13 +33,14 @@ include('similarity.php')
 
 <body>
   <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">JobSeeker Page</a>
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0 py-3" style="font-size: 1.2rem;" href="#">JobSeeker Page</a>
     <ul class="navbar-nav px-3">
       <li class="nav-item text-nowrap">
-        <a class="nav-link" href="logout.php">Sign out</a>
+        <a class="nav-link" href="logout.php" style="font-size: 1.2rem;">Sign out</a>
       </li>
     </ul>
   </nav>
+
 
   <div class="container-fluid">
     <div class="row">
@@ -101,7 +102,17 @@ include('similarity.php')
 
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-          <h1 class="h2" style="text-transform:uppercase;">Relevant Jobs for you </h1>
+          <!-- <h1 class="h2" style="text-transform:uppercase;">Relevant Jobs for you </h1> -->
+
+          <div class="container-fluid bg-dark">
+            <div class="row">
+              <div class="col">
+                <h1 class="h2 text-center text-white" style="text-transform:uppercase;">Relevant Jobs for you</h1>
+              </div>
+            </div>
+          </div>
+
+
         </div>
 
         <?php
@@ -113,6 +124,8 @@ include('similarity.php')
         $result1 = mysqli_query($conn, $sql1);
         $row1 = mysqli_fetch_array($result1);
         $text1 = $row1['about_me'];
+        // print_r($text1);
+
 
 
         //Getting all the related job specification
@@ -144,24 +157,80 @@ include('similarity.php')
           $similarity = Similarity::cosine($array_text1, $array_text2, $dot);
 
           // making confidence to 100
+
           $sim_percent = $similarity * 100;
+          // if ($sim_percent >= 50) {
 
-          if ($sim_percent >= 50) {
-            // print_r($dot);
-            // echo '<br>';
-            // print_r(Similarity::checka($array_text1, $dot));
-            // echo '<br>';
-            // echo "check a and b data";
-            // print_r(Similarity::checkb($array_text2, $dot));
-            echo '<br>';
+          if ($sim_percent < 50) {
+
+          // print_r($dot);
+          // echo '<br>';
+          // print_r(Similarity::checka($array_text1, $dot));
+          // echo '<br>';
+          // echo "check a and b data";
+          // print_r(Similarity::checkb($array_text2, $dot));
+          echo '<br>';
 
 
 
-            $sql3 = "select * from job_master where JobId='" . $JobId . "'";
-            $result3 = mysqli_query($conn, $sql3);
-            $row3 = mysqli_fetch_array($result3);
+          $sql3 = "select * from job_master where JobId='" . $JobId . "'";
+          $result3 = mysqli_query($conn, $sql3);
+          $row3 = mysqli_fetch_array($result3);
         ?>
-            <table width="60%" border="1px" cellpadding="0" cellspacing="0" style="margin-bottom:10px;">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-8">
+                <div class="card">
+                  <div class="card-header">
+                    <strong>Job Details</strong>
+                  </div>
+                  <div class="card-body">
+                    <table class="table table-bordered table-hover">
+                      <tbody>
+                        <tr>
+                          <th scope="row">JobId</th>
+                          <td><?php echo $row3['JobId']; ?></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">CompanyName</th>
+                          <td><?php echo $row3['CompanyName']; ?></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">JobTitle</th>
+                          <td><?php echo $row3['JobTitle']; ?></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Vacancy</th>
+                          <td><?php echo $row3['Vacancy']; ?></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Qualification</th>
+                          <td><?php echo $row3['MinQualification']; ?></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Description</th>
+                          <td><?php echo $row3['Description']; ?></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Job Specifiction</th>
+                          <td><?php echo $text2; ?></td>
+                        </tr>
+                        <tr>
+                          <td colspan="2" class="text-center">
+                            <a href="Apply.php?JobId=<?php echo $row3['JobId']; ?>" class="btn btn-primary">
+                              Apply For Job
+                            </a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <table width="60%" border="1px" cellpadding="0" cellspacing="0" style="margin-bottom:10px;">
               <tr>
                 <td><strong>JobId</strong></td>
                 <td><strong><?php echo $row3['JobId']; ?></strong></td>
@@ -194,9 +263,9 @@ include('similarity.php')
                 <td>&nbsp;</td>
                 <td><a href="Apply.php?JobId=<?php echo $row3['JobId']; ?>"><strong>Apply For Job</strong></a></td>
               </tr>
-            </table>
+            </table> -->
         <?php
-          }
+        }
         }
 
         ?>
