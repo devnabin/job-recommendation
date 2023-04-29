@@ -46,14 +46,14 @@ class Similarity
 		// from our research                                         
 		// return self::dot_product($a, $b) / (self::magnitude($a) * self::magnitude($b)); 
 	}
-	public function checka($a, $base)
+	public static function checka($a, $base)
 	{
 		$a = array_fill_keys($a, 1) + $base;
 		ksort($a);
 		return $a;
 	}
 
-	public function checkb($b, $base)
+	public static function checkb($b, $base)
 	{
 		$b = array_fill_keys($b, 1) + $base;
 		ksort($b);
