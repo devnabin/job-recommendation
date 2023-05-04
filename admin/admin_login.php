@@ -36,7 +36,6 @@ session_start();
 </head>
 
 <body class="text-center">
-  <!-- <img class="mb-4" src="./img/logo.png" alt="" width="102" height="102"> -->
   <form class="form-signin border border-primary-subtl bg-body-secondary" id="admin_login" name="admin_login" method="Post">
     <div class="pb-4 fs-4 text">Job Station Admin Login</div>
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
