@@ -108,7 +108,7 @@
                 <form class="d-flex justify-content-center" role="search">
                     <form class="d-flex justify-content-center" role="search">
                         <input style="width : 400px;" class="form-control me-2" type="search" placeholder="Find Your Next Job." aria-label="Search">
-                        &nbsp; <button class="btn btn-outline-success" style="color : white; border-color: orangered; " type="submit">Search</button>
+                        &nbsp; <button class="" href="#trainers" style=" border-color: orangered; " type="submit">Search</button>
                     </form>
                     <!-- <input class="form-control me-2" type="search" placeholder="Enter Job Title or Keyword" aria-label="Search">
 
