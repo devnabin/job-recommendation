@@ -75,12 +75,6 @@ if (!isset($_SESSION['email'])) {
                 Manage Employer
               </a>
             </li>
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Saved reports</span>
-              <a class="d-flex align-items-center text-muted" href="#">
-                <span data-feather="plus-circle"></span>
-              </a>
-            </h6>
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
                 <a class="nav-link" href="feedback.php">
@@ -103,48 +97,50 @@ if (!isset($_SESSION['email'])) {
           <h1>READ FEEDBACK</h1>
         </div>
         <table class="table table-bordered table-striped">
-  <thead>
-    <tr class="bg-primary text-white">
-      <th scope="col"><strong>Id</strong></th>
-      <th scope="col"><strong>Job Seeker Name</strong></th>
-      <th scope="col"><strong>Feedback</strong></th>
-      <th scope="col"><strong>Date</strong></th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php
-      include 'connection/db.php';
-      // Specify the query to execute
-      $sql = "select FeedbackId,Feedback,FeedbakDate,JobSeekerName from feedback,jobseeker_reg where feedback.JobSeekId=jobseeker_reg.JobSeekId";
-      // Execute query
-      $result = mysqli_query($conn, $sql);
-      // Loop through each records
-      while ($row = mysqli_fetch_array($result)) {
-        $Id = $row['FeedbackId'];
-        $Name = $row['JobSeekerName'];
-        $Feedback = $row['Feedback'];
-        $FeedbakDate = $row['FeedbakDate'];
-    ?>
-    <tr>
-      <td><?php echo $Id; ?></td>
-      <td><?php echo $Name; ?></td>
-      <td><?php echo $Feedback; ?></td>
-      <td><?php echo $FeedbakDate; ?></td>
-    </tr>
-    <?php
-      }
-      // Retrieve Number of records returned
-      $records = mysqli_num_rows($result);
-      ?>
-      <tr>
-        <td colspan="4"><div class="text-right"><?php echo "Total " . $records . " Records"; ?></div></td>
-      </tr>
-      <?php
-        // Close the connection
-        mysqli_close($conn);
-      ?>
-    </tbody>
-</table>
+          <thead>
+            <tr class="bg-primary text-white">
+              <th scope="col"><strong>Id</strong></th>
+              <th scope="col"><strong>Job Seeker Name</strong></th>
+              <th scope="col"><strong>Feedback</strong></th>
+              <th scope="col"><strong>Date</strong></th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            include 'connection/db.php';
+            // Specify the query to execute
+            $sql = "select FeedbackId,Feedback,FeedbakDate,JobSeekerName from feedback,jobseeker_reg where feedback.JobSeekId=jobseeker_reg.JobSeekId";
+            // Execute query
+            $result = mysqli_query($conn, $sql);
+            // Loop through each records
+            while ($row = mysqli_fetch_array($result)) {
+              $Id = $row['FeedbackId'];
+              $Name = $row['JobSeekerName'];
+              $Feedback = $row['Feedback'];
+              $FeedbakDate = $row['FeedbakDate'];
+            ?>
+              <tr>
+                <td><?php echo $Id; ?></td>
+                <td><?php echo $Name; ?></td>
+                <td><?php echo $Feedback; ?></td>
+                <td><?php echo $FeedbakDate; ?></td>
+              </tr>
+            <?php
+            }
+            // Retrieve Number of records returned
+            $records = mysqli_num_rows($result);
+            ?>
+            <tr>
+              <td colspan="4">
+                <div class="text-right"><?php echo "Total " . $records . " Records"; ?></div>
+              </td>
+            </tr>
+            <?php
+            // Close the connection
+            mysqli_close($conn);
+            ?>
+          </tbody>
+        </table>
 
 
       </main>
