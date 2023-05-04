@@ -157,9 +157,9 @@ if (!isset($_SESSION['uname'])) {
                     $sql1 = "select * from jobseeker_education where JobSeekId='" . $ID . "'  ";
                     // Execute query
                     $result1 = mysqli_query($conn, $sql1);
-
                     $row1 = mysqli_fetch_array($result1);
 
+                    
                     $about_myself = $row['JobSeekerName'] . " " . $row['Address'] . " " . $row['City'] . " " . $row['Experience'] . " " . $row['Email'] . " " . $row['Mobile'] . " " . $row['age'] . " years old " . $row['Gender'] . " " . $row['Qualification'] . " " . $row1['Degree'] . " " . $row1['University'] . " " . $row1['Percentage'] . " percentage.";
 
                     $sql2 = "select * from about_myself where jobseek_id='" . $ID . "'  ";

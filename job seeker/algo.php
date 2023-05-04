@@ -131,21 +131,25 @@ include('similarity.php')
         echo "<br/> <br/> <br/>";
 
         //Getting all the related job specification
-        $sql2 = "select * from job_specification";
+        $sql2 = "select * from job_master";
         $result2 = mysqli_query($conn, $sql2);
-
-        $rowTest = mysqli_fetch_array($result2);
-        print_r($rowTest['Specification']);
+        // $rowTest = mysqli_fetch_array($result2);
+        // $textExample = $rowTest['CompanyName'] .' '. $rowTest['JobTitle'] .' '.$rowTest['Age'] .' '.$rowTest['MinQualification'] .' '.$rowTest['Requirement'] .' '.$rowTest['Description'];
+        // echo "afafdadsf <br />";
+        // print_r($textExample);
 
 
         while ($row2 = mysqli_fetch_array($result2)) {
-
           // print_r($row2); //This will give per post
 
+          $textExample = $row2['CompanyName'] . ' ' . $rowTest['JobTitle'] . ' ' . $rowTest['Age'] . ' ' . $rowTest['MinQualification'] . ' ' . $rowTest['Requirement'] . ' ' . $rowTest['Description'];
+
+
+
           // data form job specification table
-          $JobId = $row2['jobid'];
-          $JobTitle = $row2['job_title'];
-          $text2 = $row2['Specification'];
+          $JobId = $row2['jobId'];
+          $JobTitle = $row2['jobTitle'];
+          $text2 = $textExample;
 
           // echo $JobId, '*******************';
           // echo $JobTitle, '*******************';
@@ -179,7 +183,7 @@ include('similarity.php')
 
           $sim_percent = $similarity * 100;
 
-        echo "<br/> <br/> <br/>";
+          echo "<br/> <br/> <br/>";
 
           echo $sim_percent;
           if ($sim_percent >= 50) {
