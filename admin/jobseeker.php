@@ -110,7 +110,7 @@ if(!isset($_SESSION['email']))
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1>Job Seekers</h1>
           </div>
-          <table id="example" class="display" style="width:100%">
+          <table id="example" class="table table-dark table-striped" style="width:100%">
         <thead>
             <tr>
                 <th>Name</th>
