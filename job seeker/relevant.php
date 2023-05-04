@@ -127,25 +127,28 @@ include('similarity.php')
 
         // The resulatant of $text1 will be used as a parameter for finding cosine value
         $text1 = $row1['about_me']; //uncomment
-        print_r($text1);
+        // print_r($text1);
         echo "<br/> <br/> <br/>";
 
         //Getting all the related job specification
-        $sql2 = "select * from job_specification";
-        $result2 = mysqli_query($conn, $sql2);
+        // $sql2 = "select * from job_specification";
+        // $result2 = mysqli_query($conn, $sql2);
 
-        $rowTest = mysqli_fetch_array($result2);
-        print_r($rowTest['Specification']);
+        // $rowTest = mysqli_fetch_array($result2);
+        // print_r($rowTest['Specification']);
 
 
-        while ($row2 = mysqli_fetch_array($result2)) {
+        $sql3 = "select * from job_master";
+        $result3 = mysqli_query($conn, $sql3);
+        // $row3 = mysqli_fetch_array($result3);
 
-          // print_r($row2); //This will give per post
 
+        $checkUI = 0;
+        while ($row2 = mysqli_fetch_array($result3)) {
           // data form job specification table
-          $JobId = $row2['jobid'];
-          $JobTitle = $row2['job_title'];
-          $text2 = $row2['Specification'];
+          $JobId = $row2['JobId'];
+          $JobTitle = $row2['JobTitle'];
+          $text2 = $row2['CompanyName'] . ' ' . $row2['JobTitle'] . ' ' . $row2['Age'] . ' ' . $row2['MinQualification'] . ' ' . $row2['Requirement'] . ' ' . $row2['Description'] . ' ' . $row2['ExpectedSalary'];
 
           // echo $JobId, '*******************';
           // echo $JobTitle, '*******************';
@@ -179,9 +182,9 @@ include('similarity.php')
 
           $sim_percent = $similarity * 100;
 
-        echo "<br/> <br/> <br/>";
+          // echo "<br/> <br/> <br/>";
 
-          echo $sim_percent;
+          // echo $sim_percent;
           if ($sim_percent >= 50) {
 
             // if ($sim_percent >= 1) {
@@ -195,10 +198,6 @@ include('similarity.php')
             echo '<br>';
 
 
-
-            $sql3 = "select * from job_master where JobId='" . $JobId . "'";
-            $result3 = mysqli_query($conn, $sql3);
-            $row3 = mysqli_fetch_array($result3);
         ?>
             <div class="container">
               <div class="row justify-content-center">
@@ -212,27 +211,27 @@ include('similarity.php')
                         <tbody>
                           <tr>
                             <th scope="row">JobId</th>
-                            <td><?php echo $row3['JobId']; ?></td>
+                            <td><?php echo $row2['JobId']; ?></td>
                           </tr>
                           <tr>
                             <th scope="row">CompanyName</th>
-                            <td><?php echo $row3['CompanyName']; ?></td>
+                            <td><?php echo $row2['CompanyName']; ?></td>
                           </tr>
                           <tr>
                             <th scope="row">JobTitle</th>
-                            <td><?php echo $row3['JobTitle']; ?></td>
+                            <td><?php echo $row2['JobTitle']; ?></td>
                           </tr>
                           <tr>
                             <th scope="row">Vacancy</th>
-                            <td><?php echo $row3['Vacancy']; ?></td>
+                            <td><?php echo $row2['Vacancy']; ?></td>
                           </tr>
                           <tr>
                             <th scope="row">Qualification</th>
-                            <td><?php echo $row3['MinQualification']; ?></td>
+                            <td><?php echo $row2['MinQualification']; ?></td>
                           </tr>
                           <tr>
                             <th scope="row">Description</th>
-                            <td><?php echo $row3['Description']; ?></td>
+                            <td><?php echo $row2['Description']; ?></td>
                           </tr>
                           <tr>
                             <th scope="row">Job Specifiction</th>
