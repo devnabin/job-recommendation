@@ -122,80 +122,54 @@ include('similarity.php')
         //for job seeker
         $sql1 = "select * from about_myself where jobseek_id='" . $ID . "'  ";
 
+        // making sql query
         $result1 = mysqli_query($conn, $sql1);
         $row1 = mysqli_fetch_array($result1);
 
-        // The resulatant of $text1 will be used as a parameter for finding cosine value
-        $text1 = $row1['about_me']; //uncomment
-        // print_r($text1);
-        echo "<br/> <br/> <br/>";
+        // First parameter for cosine value
+        $text1 = $row1['about_me'];
 
-        //Getting all the related job specification
-        // $sql2 = "select * from job_specification";
-        // $result2 = mysqli_query($conn, $sql2);
+        $sql2 = "select * from job_master";
+        $result2 = mysqli_query($conn, $sql2);
 
-        // $rowTest = mysqli_fetch_array($result2);
-        // print_r($rowTest['Specification']);
-
-
-        $sql3 = "select * from job_master";
-        $result3 = mysqli_query($conn, $sql3);
-        // $row3 = mysqli_fetch_array($result3);
-
-
-        $checkUI = 0;
-        while ($row2 = mysqli_fetch_array($result3)) {
-          // data form job specification table
+        while ($row2 = mysqli_fetch_array($result2)) {
+          // data form job master table
           $JobId = $row2['JobId'];
           $JobTitle = $row2['JobTitle'];
+
+          //2nd parameter for calculating cosine value
           $text2 = $row2['CompanyName'] . ' ' . $row2['JobTitle'] . ' ' . $row2['Age'] . ' ' . $row2['MinQualification'] . ' ' . $row2['Requirement'] . ' ' . $row2['Description'] . ' ' . $row2['ExpectedSalary'];
 
-          // echo $JobId, '*******************';
-          // echo $JobTitle, '*******************';
-          // echo $text2, '*******************';
+          //concatination for creating base array
+          $text3 = $text1 . $text2;
 
           // making string of array
           $array_text1 = explode(" ", $text1);
           $array_text2 = explode(" ", $text2);
+          $array_text3 = explode(" ", $text3);
 
 
-
-          // print_r($array_text1);
-          // echo ("**************");
-          // print_r($array_text2);
-
-
-
-          $dot = Similarity::dot($array_text1);
-          //  print_r($dot); //Idk what the heck is in dot
-
+          $base = Similarity::dot($array_text3);
 
           // checking cosine value
           // echo 'Cosine Similarity is ' . Similarity::cosine($array_text1, $array_text2, $dot);
 
           // generating value
-          $similarity = Similarity::cosine($array_text1, $array_text2, $dot);
-
-
+          $similarity = Similarity::cosine($array_text1, $array_text2, $base);
 
           // making confidence to 100
-
           $sim_percent = $similarity * 100;
-
-          // echo "<br/> <br/> <br/>";
-
           // echo $sim_percent;
+
           if ($sim_percent >= 50) {
 
-            // if ($sim_percent >= 1) {
-
-            // print_r($dot);
+            // print_r($base);
             // echo '<br>';
-            // print_r(Similarity::checka($array_text1, $dot));
+            // print_r(Similarity::checka($array_text1, $base));
             // echo '<br>';
             // echo "check a and b data";
-            // print_r(Similarity::checkb($array_text2, $dot));
-            echo '<br>';
+            // print_r(Similarity::checkb($array_text2, $base));
+            // echo '<br>';
 
 
         ?>
@@ -212,6 +186,7 @@ include('similarity.php')
                           <tr>
                             <th scope="row">JobId</th>
                             <td><?php echo $row2['JobId']; ?></td>
+                            <!-- <?php echo $sim_percent; ?> -->
                           </tr>
                           <tr>
                             <th scope="row">CompanyName</th>
@@ -251,55 +226,13 @@ include('similarity.php')
                 </div>
               </div>
             </div>
-
-            <!-- <table width="60%" border="1px" cellpadding="0" cellspacing="0" style="margin-bottom:10px;">
-              <tr>
-                <td><strong>JobId</strong></td>
-                <td><strong><?php echo $row3['JobId']; ?></strong></td>
-              </tr>
-              <tr>
-                <td><strong>CompanyName</strong></td>
-                <td><strong><?php echo $row3['CompanyName']; ?></strong></td>
-              </tr>
-              <tr>
-                <td><strong>JobTitle</strong></td>
-                <td><strong><?php echo $row3['JobTitle']; ?></strong></td>
-              </tr>
-              <tr>
-                <td><strong>Vacancy</strong></td>
-                <td><strong><?php echo $row3['Vacancy']; ?></strong></td>
-              </tr>
-              <tr>
-                <td><strong>Qualification</strong></td>
-                <td><strong><?php echo $row3['MinQualification']; ?></strong></td>
-              </tr>
-              <tr>
-                <td><strong>Description</strong></td>
-                <td><strong><?php echo $row3['Description']; ?></strong></td>
-              </tr>
-              <tr>
-                <td><strong>Job Specifiction</strong></td>
-                <td><strong><?php echo $text2; ?></strong></td>
-              </tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td><a href="Apply.php?JobId=<?php echo $row3['JobId']; ?>"><strong>Apply For Job</strong></a></td>
-              </tr>
-            </table> -->
         <?php
           }
         }
-
         ?>
-
-
       </main>
     </div>
   </div>
-
-  <!-- Bootstrap core JavaScript
-    ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script>
     window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>');

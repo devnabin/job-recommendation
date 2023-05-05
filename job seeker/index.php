@@ -189,85 +189,80 @@ include('similarity.php')
 
         //for job seeker
         $sql1 = "select * from about_myself where jobseek_id='" . $ID . "'  ";
+
+        // making sql query
         $result1 = mysqli_query($conn, $sql1);
         $row1 = mysqli_fetch_array($result1);
+
+        // First parameter for cosine value
         $text1 = $row1['about_me'];
-        // print_r($text1);
 
-
-
-        //Getting all the related job specification
-        $sql2 = "select * from job_specification";
+        $sql2 = "select * from job_master";
         $result2 = mysqli_query($conn, $sql2);
 
-        // $rowTest = mysqli_fetch_array($result2);
-        // echo ($rowTest);
-        // print_r($rowTest);
+        while ($row2 = mysqli_fetch_array($result2)) {
+          // data form job master table
+          $JobId = $row2['JobId'];
+          $JobTitle = $row2['JobTitle'];
+
+          //2nd parameter for calculating cosine value
+          $text2 = $row2['CompanyName'] . ' ' . $row2['JobTitle'] . ' ' . $row2['Age'] . ' ' . $row2['MinQualification'] . ' ' . $row2['Requirement'] . ' ' . $row2['Description'] . ' ' . $row2['ExpectedSalary'];
+
+          //concatination for creating base array
+          $text3 = $text1 . $text2;
+
+          // making string of array
+          $array_text1 = explode(" ", $text1);
+          $array_text2 = explode(" ", $text2);
+          $array_text3 = explode(" ", $text3);
+
+
+          $base = Similarity::dot($array_text3);
+
+          // checking cosine value
+          // echo 'Cosine Similarity is ' . Similarity::cosine($array_text1, $array_text2, $dot);
+
+          // generating value
+          $similarity = Similarity::cosine($array_text1, $array_text2, $base);
+
+          // making confidence to 100
+          $sim_percent = $similarity * 100;
+          // echo $sim_percent;
+
+          if ($sim_percent >= 50) {
+
+            // print_r($base);
+            // echo '<br>';
+            // print_r(Similarity::checka($array_text1, $base));
+            // echo '<br>';
+            // echo "check a and b data";
+            // print_r(Similarity::checkb($array_text2, $base));
+            // echo '<br>';
+
+
         ?>
-
-        <div class="d-flex flex-wrap justify-content-around">
-
-
-          <?php
-          while ($row2 = mysqli_fetch_array($result2)) {
-            // data form job specification table
-            $JobId = $row2['jobid'];
-            $JobTitle = $row2['job_title'];
-            $text2 = $row2['Specification'];
-
-            // making string of array
-            $array_text1 = explode(" ", $text1);
-            $array_text2 = explode(" ", $text2);
-
-
-            $dot = Similarity::dot($array_text1);
-
-            // checking cosine value
-            // echo 'Cosine Similarity is ' . Similarity::cosine($array_text1, $array_text2, $dot);
-
-            // generating value
-            $similarity = Similarity::cosine($array_text1, $array_text2, $dot);
-
-            // making confidence to 100
-
-            $sim_percent = $similarity * 100;
-
-
-            // if ($sim_percent >= 50) {
-
-            if ($sim_percent < 50) {
-
-
-              echo '<br>';
-
-
-
-              $sql3 = "select * from job_master where JobId='" . $JobId . "'";
-              $result3 = mysqli_query($conn, $sql3);
-              $row3 = mysqli_fetch_array($result3);
-          ?>
 
               <div class="card m-2 my-2 p-2" style="width: 400px; cursor:pointer;">
                 <div class="card-body" style="background-color: #f0f0f0;">
 
 
-             
-                  <div class="mb-2 d-flex align-items-center justify-content-center bg-info" >
-                    <h3>JOB -  <?php echo $row3['JobId']; ?></h3>
+
+                  <div class="mb-2 d-flex align-items-center justify-content-center bg-info">
+                    <h3>JOB - <?php echo $row2['JobId']; ?></h3>
                   </div>
 
 
                   <!-- card content -->
 
-                  <p style="text-align: justify; font-size: 1rem;">CompanyName : <b><?php echo $row3['CompanyName']; ?></b></p>
-                  <p style="text-align: justify; font-size: 1rem;">JobTitle : <b><?php echo $row3['JobTitle']; ?></b></p>
-                  <p style="text-align: justify; font-size: 1rem;">Vacancy : <b><?php echo $row3['Vacancy']; ?></b></p>
-                  <p style="text-align: justify; font-size: 1rem;">Qualification : <b><?php echo $row3['MinQualification']; ?></b></p>
-                  <p style="text-align: justify; font-size: 1rem;">Description : <b><?php echo $row3['Description']; ?></b></p>
-                  <p style="text-align: justify; font-size: 1rem;">JobTitle : <b><?php echo $row3['Description']; ?></b></p>
+                  <p style="text-align: justify; font-size: 1rem;">CompanyName : <b><?php echo $row2['CompanyName']; ?></b></p>
+                  <p style="text-align: justify; font-size: 1rem;">JobTitle : <b><?php echo $row2['JobTitle']; ?></b></p>
+                  <p style="text-align: justify; font-size: 1rem;">Vacancy : <b><?php echo $row2['Vacancy']; ?></b></p>
+                  <p style="text-align: justify; font-size: 1rem;">Qualification : <b><?php echo $row2['MinQualification']; ?></b></p>
+                  <p style="text-align: justify; font-size: 1rem;">Description : <b><?php echo $row2['Description']; ?></b></p>
+                  <p style="text-align: justify; font-size: 1rem;">JobTitle : <b><?php echo $text2; ?></b></p>
 
                   <div class="text-center mt-2">
-                    <a href="Apply.php?JobId=<?php echo $row3['JobId']; ?>" class="btn btn-primary">
+                    <a href="Apply.php?JobId=<?php echo $row2['JobId']; ?>" class="btn btn-primary">
                       Apply For Job
                     </a>
                   </div>
@@ -284,61 +279,6 @@ include('similarity.php')
 
                 </div>
               </div>
-
-
-
-              <!-- <div class="container">
-              <div class="row justify-content-center">
-                <div class="col-md-8">
-                  <div class="card">
-                    <div class="card-header">
-                      <strong>Job Details</strong>
-                    </div>
-                    <div class="card-body">
-                      <table class="table table-bordered table-hover">
-                        <tbody>
-                          <tr>
-                            <th scope="row">JobId</th>
-                            <td><?php echo $row3['JobId']; ?></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">CompanyName</th>
-                            <td><?php echo $row3['CompanyName']; ?></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">JobTitle</th>
-                            <td><?php echo $row3['JobTitle']; ?></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">Vacancy</th>
-                            <td><?php echo $row3['Vacancy']; ?></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">Qualification</th>
-                            <td><?php echo $row3['MinQualification']; ?></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">Description</th>
-                            <td><?php echo $row3['Description']; ?></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">Job Specifiction</th>
-                            <td><?php echo $text2; ?></td>
-                          </tr>
-                          <tr>
-                            <td colspan="2" class="text-center">
-                              <a href="Apply.php?JobId=<?php echo $row3['JobId']; ?>" class="btn btn-primary">
-                                Apply For Job
-                              </a>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> -->
           <?php
             }
           }
@@ -348,9 +288,6 @@ include('similarity.php')
     </div>
   </div>
 
-  <!-- Bootstrap core JavaScript
-    ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script>
     window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>');
