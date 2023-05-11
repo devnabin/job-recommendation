@@ -1,3 +1,6 @@
+
+
+
 <?php
 session_start();
 if (!isset($_SESSION['uname'])) {
@@ -140,6 +143,12 @@ include('similarity.php')
           //2nd parameter for calculating cosine value
           $text2 = $row2['CompanyName'] . ' ' . $row2['JobTitle'] . ' ' . $row2['Age'] . ' ' . $row2['MinQualification'] . ' ' . $row2['Requirement'] . ' ' . $row2['Description'] . ' ' . $row2['ExpectedSalary'];
 
+          // echo "************* <br />";
+          //     echo "<br />";
+          // echo "************* <br />";
+
+          // echo $text2;
+
           //concatination for creating base array
           $text3 = $text1 . $text2;
 
@@ -161,7 +170,8 @@ include('similarity.php')
           $sim_percent = $similarity * 100;
           // echo $sim_percent;
 
-          if ($sim_percent >= 50) {
+          if ($sim_percent > 1) {
+            // echo $sim_percent;
 
             // print_r($base);
             // echo '<br>';
@@ -206,11 +216,19 @@ include('similarity.php')
                           </tr>
                           <tr>
                             <th scope="row">Description</th>
-                            <td><?php echo $row2['Description']; ?></td>
+                            <!-- <td><?php echo $row2['Description']; ?></td> -->
+                            <?php
+                            $limited_text = substr($row2['Description'], 0, 500);
+                            echo "<td>$limited_text...</td>";
+                            ?>
                           </tr>
                           <tr>
                             <th scope="row">Job Specifiction</th>
-                            <td><?php echo $text2; ?></td>
+                            <!-- <td><?php echo $text2; ?></td> -->
+                            <?php
+                            $limited_text = substr($row2['Description'], 0, 200);
+                            echo "<td>$limited_text...</td>";
+                            ?>
                           </tr>
                           <tr>
                             <td colspan="2" class="text-center">

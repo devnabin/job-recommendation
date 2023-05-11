@@ -201,9 +201,18 @@ include('similarity.php')
         $result2 = mysqli_query($conn, $sql2);
 
         while ($row2 = mysqli_fetch_array($result2)) {
+
+
           // data form job master table
           $JobId = $row2['JobId'];
+
           $JobTitle = $row2['JobTitle'];
+
+          echo "<br />";
+          echo "<br />";
+          echo $JobTitle;
+          echo "<br />";
+          echo "<br />";
 
           //2nd parameter for calculating cosine value
           $text2 = $row2['CompanyName'] . ' ' . $row2['JobTitle'] . ' ' . $row2['Age'] . ' ' . $row2['MinQualification'] . ' ' . $row2['Requirement'] . ' ' . $row2['Description'] . ' ' . $row2['ExpectedSalary'];
@@ -227,9 +236,12 @@ include('similarity.php')
 
           // making confidence to 100
           $sim_percent = $similarity * 100;
+
+          // echo $similarity;
+          // echo "<br />";
           // echo $sim_percent;
 
-          if ($sim_percent >= 50) {
+          if ($sim_percent >= 45) {
 
             // print_r($base);
             // echo '<br>';
@@ -242,50 +254,54 @@ include('similarity.php')
 
         ?>
 
-              <div class="card m-2 my-2 p-2" style="width: 400px; cursor:pointer;">
-                <div class="card-body" style="background-color: #f0f0f0;">
+            <div class="card m-2 my-2 p-2" style="width: 400px; cursor:pointer;">
+              <div class="card-body" style="background-color: #f0f0f0;">
 
 
 
-                  <div class="mb-2 d-flex align-items-center justify-content-center bg-info">
-                    <h3>JOB - <?php echo $row2['JobId']; ?></h3>
-                  </div>
-
-
-                  <!-- card content -->
-
-                  <p style="text-align: justify; font-size: 1rem;">CompanyName : <b><?php echo $row2['CompanyName']; ?></b></p>
-                  <p style="text-align: justify; font-size: 1rem;">JobTitle : <b><?php echo $row2['JobTitle']; ?></b></p>
-                  <p style="text-align: justify; font-size: 1rem;">Vacancy : <b><?php echo $row2['Vacancy']; ?></b></p>
-                  <p style="text-align: justify; font-size: 1rem;">Qualification : <b><?php echo $row2['MinQualification']; ?></b></p>
-                  <p style="text-align: justify; font-size: 1rem;">Description : <b><?php echo $row2['Description']; ?></b></p>
-                  <p style="text-align: justify; font-size: 1rem;">JobTitle : <b><?php echo $text2; ?></b></p>
-
-                  <div class="text-center mt-2">
-                    <a href="Apply.php?JobId=<?php echo $row2['JobId']; ?>" class="btn btn-primary">
-                      Apply For Job
-                    </a>
-                  </div>
-
-
-                  <!-- hover effect -->
-                  <style>
-                    .card:hover {
-                      transform: scale(1.02);
-                      transition: all 0.3s ease-in-out;
-                      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-                    }
-                  </style>
-
+                <div class="mb-2 d-flex align-items-center justify-content-center bg-info">
+                  <h3>JOB - <?php echo $row2['JobId']; ?></h3>
                 </div>
+
+
+                <!-- card content -->
+
+                <p style="text-align: justify; font-size: 1rem;">CompanyName : <b><?php echo $row2['CompanyName']; ?></b></p>
+                <p style="text-align: justify; font-size: 1rem;">JobTitle : <b><?php echo $row2['JobTitle']; ?></b></p>
+                <p style="text-align: justify; font-size: 1rem;">Vacancy : <b><?php echo $row2['Vacancy']; ?></b></p>
+                <p style="text-align: justify; font-size: 1rem;">Qualification : <b><?php echo $row2['MinQualification']; ?></b></p>
+                <p style="text-align: justify; font-size: 1rem;">Description : <b>
+                    <!-- <?php echo $row2['Description']; ?> -->
+                    <?php
+                    $limited_text = substr($row2['Description'], 0, 200);
+                    echo "<td>$limited_text...</td>";
+                    ?>
+                  </b></p>
+                <div class="text-center mt-2">
+                  <a href="Apply.php?JobId=<?php echo $row2['JobId']; ?>" class="btn btn-primary">
+                    Apply For Job
+                  </a>
+                </div>
+
+
+                <!-- hover effect -->
+                <style>
+                  .card:hover {
+                    transform: scale(1.02);
+                    transition: all 0.3s ease-in-out;
+                    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+                  }
+                </style>
+
               </div>
-          <?php
-            }
+            </div>
+        <?php
           }
-          ?>
-        </div>
-      </main>
+        }
+        ?>
     </div>
+    </main>
+  </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

@@ -52,8 +52,9 @@ include('similarity.php')
         echo "First Text is ", "</br>", "</br>";
 
 
-        $text1 = "Arjan Bhattarai Kathmandu Kathmandu CSS Cascading Style Sheets (CSS) Box Model Responsive Design Media Queries Flexbox Grid Layout CSS Preprocessors (e.g., SASS, LESS) CSS Frameworks (e.g., Bootstrap, Materialize) HTML HyperText Markup Language (HTML) Semantic HTML Document Object Model (DOM) Accessibility Forms and Input Semantic Web Web Standards Browser Compatibility JavaScript JavaScript (JS) Variables Functions Control Flow Arrays Objects Scope Callbacks Asynchronous Programming Libraries and Frameworks (e.g., jQuery, Node.js, Angular.js) React.js React.js Virtual DOM JSX Components State Props Lifecycle methods Hooks Redux React Router shesh@gmail.com 9812870775 21 years old Male CSIT CSIT Kathmandu Model Collage 60 percentage.";
+        // $text1 = "Arjan Bhattarai Kathmandu Kathmandu CSS Cascading Style Sheets (CSS) Box Model Responsive Design Media Queries Flexbox Grid Layout CSS Preprocessors (e.g., SASS, LESS) CSS Frameworks (e.g., Bootstrap, Materialize) HTML HyperText Markup Language (HTML) Semantic HTML Document Object Model (DOM) Accessibility Forms and Input Semantic Web Web Standards Browser Compatibility JavaScript JavaScript (JS) Variables Functions Control Flow Arrays Objects Scope Callbacks Asynchronous Programming Libraries and Frameworks (e.g., jQuery, Node.js, Angular.js) React.js React.js Virtual DOM JSX Components State Props Lifecycle methods Hooks Redux React Router shesh@gmail.com 9812870775 21 years old Male CSIT CSIT Kathmandu Model Collage 60 percentage.";
 
+        $text1 = "hello hi hi this is me nabin";
 
         echo $text1;
 
@@ -64,19 +65,24 @@ include('similarity.php')
         echo "</br> </br> Second Text is ", "</br>", "</br>";
 
 
-        $text2 = "we are looking for a very energetic and technology passionate individual for the post of frontend developer in our company, one needs to have good understanding of core programming concepts and must have work in a required field for around or more than 6 years of work experience. Candidate from Kathmandu area will be higly preferable. He/she must be familair with core concept of HTML, CSS and JavaScript (JS). He/She should be above 21 years old and must posses above 60 percentages in related field like CSIT or BIT etc. He/She must have knowledge in CSS Cascading Style Sheets (CSS) Box Model Responsive Design Media Queries Flexbox Grid React.js Virtual DOM JSX Components State Props Lifecycle methods and deeply understanding in javaScript like  Variables Functions Control Flow Arrays Objects. CSS Cascading Style Sheets (CSS) Box Model Responsive Design Media Queries Flexbox Grid Layout CSS Preprocessors (e.g., SASS, LESS) CSS Frameworks (e.g., Bootstrap, Materialize) HTML HyperText Markup Language (HTML) Semantic HTML Document Object Model (DOM) Accessibility Forms and Input Semantic Web Web Standards Browser Compatibility JavaScript JavaScript (JS)";
+        // $text2 = "we are looking for a very energetic and technology passionate individual for the post of frontend developer in our company, one needs to have good understanding of core programming concepts and must have work in a required field for around or more than 6 years of work experience. Candidate from Kathmandu area will be higly preferable. He/she must be familair with core concept of HTML, CSS and JavaScript (JS). He/She should be above 21 years old and must posses above 60 percentages in related field like CSIT or BIT etc. He/She must have knowledge in CSS Cascading Style Sheets (CSS) Box Model Responsive Design Media Queries Flexbox Grid React.js Virtual DOM JSX Components State Props Lifecycle methods and deeply understanding in javaScript like  Variables Functions Control Flow Arrays Objects. CSS Cascading Style Sheets (CSS) Box Model Responsive Design Media Queries Flexbox Grid Layout CSS Preprocessors (e.g., SASS, LESS) CSS Frameworks (e.g., Bootstrap, Materialize) HTML HyperText Markup Language (HTML) Semantic HTML Document Object Model (DOM) Accessibility Forms and Input Semantic Web Web Standards Browser Compatibility JavaScript JavaScript (JS)";
 
 
+
+        $text2 = "mero vai";
         echo $text2;
 
 
-        // making string of array
-        $array_text1 = explode(" ", $text1);
-        $array_text2 = explode(" ", $text2);
+       //concatination for creating base array
+       $text3 = $text1 . $text2;
+
+       // making string of array
+       $array_text1 = explode(" ", $text1);
+       $array_text2 = explode(" ", $text2);
+       $array_text3 = explode(" ", $text3);
 
 
-
-        $dot = Similarity::dot($array_text1);
+        $dot = Similarity::dot($array_text3);
 
         $similarity = Similarity::cosine($array_text1, $array_text2, $dot);
 

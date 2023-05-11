@@ -135,22 +135,50 @@ ob_start();
           </div>
           <div class="input-field">
             <i class="fas fa-university"></i>
-            <input type="text" name="txtquali" required placeholder="Qualification" />
+            <input type="text" name="txtquali" required placeholder="University Degree" />
           </div>
-          <div class="input-field">
+          <div class="input-field edit-the-register">
             <i class="fas fa-university"></i>
-            <input type="text" name="txtExp" required placeholder="Experience and Skills" />
+            <textarea name="text" required placeholder="What is your skills & Qualification. Please Describe."></textarea>
+
+            <style>
+              .edit-the-register {
+                height: 800px;
+                padding: 10px;
+                position: relative;
+                width: 100%;
+                height: auto;
+                overflow: hidden;
+              }
+
+              .edit-the-register textarea {
+                height: 780px;
+                background: none;
+                border: none;
+                outline: none;
+                display: block;
+                width: 100%;
+                height: 100%;
+                padding: 10px;
+                font-size: 16px;
+                line-height: 1.5;
+                border: none;
+                resize: none;
+              }
+            </style>
+
           </div>
+
           <div class="input-field">
             <i class="fas fa-user"></i>
             <input type="text" name="txtGender" required placeholder="Gender" />
           </div>
-          <div>
+          <!-- <div>
             <label for="txtFile">Birth Date</label>
           </div>
           <div style="margin-bottom:10px">
             <input type="date" name="txtdate" required />
-          </div>
+          </div> -->
           <div class="input-field">
             <i class="fas fa-user"></i>
             <input type="text" name="age" required placeholder="Age" />
