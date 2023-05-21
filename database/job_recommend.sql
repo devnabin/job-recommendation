@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2023 at 05:29 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Generation Time: May 21, 2023 at 12:57 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,7 +40,11 @@ CREATE TABLE `about_myself` (
 INSERT INTO `about_myself` (`aid`, `jobseek_id`, `about_me`) VALUES
 (6, 4, 'Deepika thapa || Chaling  ||  Bhaktapur|| Experience:|| Accountant||finance Manager||Marketing|| dipikathapa@gmail.com||  9870653642||  23 years old|| female ||BBA|| MBA ||Tribhuvan University || 85 percentage.'),
 (13, 3, 'KIran Prajapati Surabinayak Bhaktapur lecturer||front end developer||Web developer||React Js||HTML5||CSS3 Kp@gmail.com 1234567890 23 years old Female BSC CSIT BE.Computer Engineering Kathmandu University 80 percentage.'),
-(14, 5, 'abc bkt bkt ASDF nbn@gmail.com 9812870775 0 years old ASDFAS ASDF    percentage.');
+(14, 5, 'abc bkt bkt ASDF nbn@gmail.com 9812870775 0 years old ASDFAS ASDF    percentage.'),
+(15, 6, 'algo algo algo alogo - expereience algo@gmail.com 2325 14 years old Male algo - qualification    percentage.'),
+(16, 7, 'Arjan Bhattarai Kathmandu Kathmandu Cascading Style Sheets (CSS) Box Model Responsive Design Media Queries Flexbox Grid Layout CSS Preprocessors (e.g., SASS, LESS) CSS Frameworks (e.g., Bootstrap, Materialize) HyperText Markup Language (HTML) Semantic HTML Document Object Model (DOM) Access shesh@gmail.com 9812870775 21 years old Male CSIT CSIT Kathmandu Model Collage 60 percentage.'),
+(17, 8, 'Saroj  Kathmandu Kathmandu I am familiaer with CSS Cascading Style Sheets (CSS) Box Model Responsive Design Media Queries Flexbox Grid Layout CSS Preprocessors (e.g., SASS, LESS) CSS Frameworks (e.g., Bootstrap, Materialize) i have strong knowledge in front end  development and i know all the tags of html HTML HyperText Markup Language (HTML) Semantic HTML Document Object Model (DOM) Accessibility Forms and Input Semantic Web Web Standards Browser Compatibility JavaScript JavaScript (JS) Variables Functions Control Flow Arrays Objects Scope Callbacks Asynchronous Programming Libraries and Frameworks (e.g., jQuery, Node.js, Angular.js) React.js React.js Virtual DOM JSX Components State Props Lifecycle methods Hooks Redux React Router saroj@gmail.com 9812870775 25 years old Male CS CS Kathmandu Model Collage 77 percentage.'),
+(18, 10, 'sanam dudhpati bhaktapur  sanam@gmail.com 9878767888 23 years old male Bachelor in CSIT    percentage.');
 
 --
 -- Triggers `about_myself`
@@ -96,7 +100,8 @@ INSERT INTO `application_master` (`ApplicationId`, `JobSeekId`, `JobId`, `Status
 (3, 3, 4, 'Apply', 'No Message'),
 (4, 3, 5, 'Apply', 'No Message'),
 (5, 3, 6, 'Call Latter Send', 'Please visit our office tommorrow at 9am'),
-(6, 4, 2, 'Apply', 'No Message');
+(6, 4, 2, 'Apply', 'No Message'),
+(7, 3, 21, 'Apply', 'No Message');
 
 -- --------------------------------------------------------
 
@@ -128,7 +133,9 @@ INSERT INTO `employer_reg` (`Employer_Id`, `CompanyName`, `ContactPerson`, `Addr
 (13, 'Ainsoft Limited', 'Mr. Hari Krishna Acharya', 'Balkhu', 'Kathmandu', 'ingo@ainsoft.com', '1234567890', 'Software Company', 'Confirm', 'Hari', 'hari', 'What is your pet Name?', 'Cat'),
 (14, 'Broadway Infosys', 'Ram Prasad', 'Duwakot', 'Bhaktapur', 'broadway@gmail.com', '1234569872', 'Software', 'Confirm', 'ram', 'ram', 'What is your pet Name?', 'ram'),
 (15, 'Softech Foundation', 'Manish Shah', 'Kamalbinayak', 'Bhaktapur', 'info@gmail.com', '2345678910', 'Software Company', 'Confirm', 'Man', 'men', 'What is your pet Name?', 'dog'),
-(16, 'abc', 'nbn', 'bkt', 'bkt', 'nbn@gmail.com', '9812870775', 'bch', 'Confirm', 'nbn', 'nbn', 'What is your pet Name?', 'sony');
+(16, 'abc', 'nbn', 'bkt', 'bkt', 'nbn@gmail.com', '9812870775', 'bch', 'Confirm', 'nbn', 'nbn', 'What is your pet Name?', 'sony'),
+(17, 'MDIT', 'Sanish Shrestha', 'Katunje ', 'Bhaktapur', 'sanish@gmail.com', '9812870775', 'IT Department', 'Confirm', 'sanish', 'sanish', 'What is your pet Name?', 'cow'),
+(18, 'sunrise', 'sunrise', 'Bhaktapur', 'naya pati', 'sanish@yahoo.com', '9812870775', 'It Department', 'Confirm', 'sunrise', 'sunrise', 'What is your pet Name?', 'sunrise');
 
 -- --------------------------------------------------------
 
@@ -154,7 +161,8 @@ INSERT INTO `feedback` (`FeedbackId`, `JobSeekId`, `Feedback`, `FeedbakDate`) VA
 (4, 3, 'kfdjgjg', '23/01/09'),
 (5, 5, 'very good hahah', '23/04/15'),
 (6, 5, 'thank you jop portal this site help me to found my dream job in google\r\n', '23/04/15'),
-(7, 3, 'as a job seeker i found this site really helpful', '23/04/16');
+(7, 3, 'as a job seeker i found this site really helpful', '23/04/16'),
+(8, 3, 'hi i enjoyed this platform', '23/05/15');
 
 -- --------------------------------------------------------
 
@@ -181,7 +189,10 @@ INSERT INTO `jobseeker_education` (`EduId`, `JobSeekId`, `Degree`, `University`,
 (4, 3, 'MBA ', 'kathmandu university', 2013, 78),
 (6, 3, 'PHD', 'Atlantong university', 2015, 87),
 (7, 5, 'BSC', 'The hack university', 2014, 50),
-(8, 3, 'BSC', 'The Multi hack university', 1993, 99);
+(8, 3, 'BSC', 'The Multi hack university', 1993, 99),
+(9, 7, 'CSIT', 'Kathmandu Model Collage', 1993, 60),
+(10, 8, 'CS', 'Kathmandu Model Collage', 2005, 77),
+(11, 10, 'BACHELOR IN COMPUTER SCIENCE', 'Bhaktapur Multiple College', 2021, 50);
 
 --
 -- Triggers `jobseeker_education`
@@ -206,7 +217,7 @@ CREATE TABLE `jobseeker_reg` (
   `Email` varchar(255) NOT NULL,
   `Mobile` varchar(255) NOT NULL,
   `Qualification` varchar(255) NOT NULL,
-  `Experience` varchar(255) NOT NULL,
+  `Experience` text NOT NULL,
   `Gender` varchar(255) NOT NULL,
   `BirthDate` varchar(255) NOT NULL,
   `age` int(11) NOT NULL,
@@ -223,9 +234,15 @@ CREATE TABLE `jobseeker_reg` (
 --
 
 INSERT INTO `jobseeker_reg` (`JobSeekId`, `JobSeekerName`, `Address`, `City`, `Email`, `Mobile`, `Qualification`, `Experience`, `Gender`, `BirthDate`, `age`, `Resume`, `Status`, `Username`, `Password`, `Question`, `Answer`) VALUES
-(3, 'Bimal Shrestha', 'Surabinayak', 'Bhaktapur', 'bimal@gmail.com', '1234567890', 'BSC CSIT', 'lecturer||front end developer||Web developer||React Js||HTML5||CSS3', 'Male', '1997-11-14', 23, 'Syllabus.pdf', 'Confirm', 'bimal', 'bimal', 'What is your pet Name?', 'cat'),
+(3, 'Bimal Shrestha', 'Surabinayak', 'Bhaktapur', 'bimal@gmail.com', '1234567890', 'BSC CSIT', 'I am familiaer with CSS Cascading Style Sheets (CSS) Box Model Responsive Design Media Queries Flexbox Grid Layout CSS Preprocessors (e.g., SASS, LESS) CSS Frameworks (e.g., Bootstrap, Materialize) i have strong knowledge in front end  development and i know all the tags of html HTML HyperText Markup Language (HTML) Semantic HTML Document Object Model (DOM) Accessibility Forms and Input Semantic Web Web Standards Browser Compatibility JavaScript JavaScript (JS) Variables Functions Control Flow Arrays Objects Scope Callbacks Asynchronous Programming Libraries and Frameworks (e.g., jQuery, Node.js, Angular.js) React.js React.js Virtual DOM JSX Components State Props Lifecycle methods Hooks Redux React Router', 'Male', '1997-11-14', 23, 'Syllabus.pdf', 'Confirm', 'bimal', 'bimal', 'What is your pet Name?', 'cat'),
 (4, 'Chetan budhathoki', 'sallaghari', 'Bhaktapur', 'chetan@gmail.com', '9870653642', 'BBA', 'Accountant||finance Manager||Marketing', 'Male', '1997-03-19', 23, 'Syllabus.pdf', 'Confirm', 'chetan', 'chetan', 'What is your pet Name?', 'cat'),
-(5, 'Nabin Bhandari', 'bkt', 'bkt', 'nbn@gmail.com', '9812870775', 'bbs', 'Accountant||finance Manager||Marketing', 'Male', '2023-04-19', 25, '', 'Confirm', 'nabin', 'nabin', 'What is your pet Name?', 'nbn');
+(5, 'Nabin Bhandari', 'bkt', 'bkt', 'nbn@gmail.com', '9812870775', 'bbs', 'Accountant||finance Manager||Marketing', 'Male', '2023-04-19', 25, '', 'Confirm', 'nabin', 'nabin', 'What is your pet Name?', 'nbn'),
+(6, 'algo', 'algo', 'algo', 'algo@gmail.com', '2325', 'algo - qualification', 'alogo - expereience', 'Male', '2014-02-18', 14, '', 'Confirm', 'algo', 'algo', 'What is your pet Name?', 'algo'),
+(7, 'Arjan Bhattarai', 'Kathmandu', 'Kathmandu', 'shesh@gmail.com', '9812870775', 'CSIT', 'CSS Cascading Style Sheets (CSS) Box Model Responsive Design Media Queries Flexbox Grid Layout CSS Preprocessors (e.g., SASS, LESS) CSS Frameworks (e.g., Bootstrap, Materialize) HTML HyperText Markup Language (HTML) Semantic HTML Document Object Model (DOM) Accessibility Forms and Input Semantic Web Web Standards Browser Compatibility JavaScript JavaScript (JS) Variables Functions Control Flow Arrays Objects Scope Callbacks Asynchronous Programming Libraries  and Frameworks (e.g., jQuery, Node.js, Angular.js) React.js React.js Virtual DOM JSX Components State Props Lifecycle methods Hooks Redux React Router', 'Male', '2023-02-07', 21, '', 'Confirm', 'arjan', 'arjan', 'What is your pet Name?', 'arjan'),
+(8, 'Saroj ', 'Kathmandu', 'Kathmandu', 'saroj@gmail.com', '9812870775', 'CS', 'I am familiaer with CSS Cascading Style Sheets (CSS) Box Model Responsive Design Media Queries Flexbox Grid Layout CSS Preprocessors (e.g., SASS, LESS) CSS Frameworks (e.g., Bootstrap, Materialize) i have strong knowledge in front end  development and i know all the tags of html HTML HyperText Markup Language (HTML) Semantic HTML Document Object Model (DOM) Accessibility Forms and Input Semantic Web Web Standards Browser Compatibility JavaScript JavaScript (JS) Variables Functions Control Flow Arrays Objects Scope Callbacks Asynchronous Programming Libraries and Frameworks (e.g., jQuery, Node.js, Angular.js) React.js React.js Virtual DOM JSX Components State Props Lifecycle methods Hooks Redux React Router', 'Male', '2023-03-22', 25, '', 'Confirm', 'saroj', 'saroj', 'What is your pet Name?', 'rosy'),
+(9, 'asdf', 'asdfasdf', 'asdfa', 'sfdasf@gmail.com', 'asdfa', 'ASDF', 'bsc pass', 'Male', '', 0, '', 'Pending', 'asdf', 'asdf', 'What is your pet Name?', 'asdf'),
+(10, 'sanam', 'dudhpati', 'bhaktapur', 'sanam@gmail.com', '9878767888', 'Bachelor in CSIT', '', 'male', '', 23, 'Resume.pdf', 'Confirm', 'sanam', 'sanam', 'What is your pet Name?', 'kanxi'),
+(11, 'Ram Jonchhe', 'Bhaktapur', 'Bhaktapur', 'ram@gmail.com', '9812587988', 'CSIT', '', 'Male', '', 25, '', 'Confirm', 'ram', 'ram', 'What is your pet Name?', 'ram');
 
 -- --------------------------------------------------------
 
@@ -241,7 +258,7 @@ CREATE TABLE `job_master` (
   `Vacancy` int(11) NOT NULL,
   `MinQualification` varchar(255) NOT NULL,
   `Requirement` text NOT NULL,
-  `Description` varchar(255) NOT NULL,
+  `Description` text NOT NULL,
   `ExpectedSalary` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -250,16 +267,10 @@ CREATE TABLE `job_master` (
 --
 
 INSERT INTO `job_master` (`JobId`, `CompanyName`, `JobTitle`, `Age`, `Vacancy`, `MinQualification`, `Requirement`, `Description`, `ExpectedSalary`) VALUES
-(0, 'Bhairav IT solution', 'Cleaner', '20', 1, 'House Wife', 'A lady candidate || Good nature || Friendly', 'A lady Candidate is required for our it company who can take care of our company.', '20000'),
-(1, 'Bhairav IT solution', 'Frontend Developer', '18', 2, 'Bachelor in Information Technology, IT', 'we are looking for a very energetic and technology passionate individual for the post of frontend developer in our company, \r\none needs to have good understanding of core programming concepts and must have work in a required field for around or more than two years', 'we are looking for a very energetic and technology passionate individual for the post of frontend developer in our company, \r\none needs to have good understanding of core programming concepts and must have work in a required field for around or more than ', '50000'),
-(2, 'Ainsoft Limited', 'Software Professional Required', '20-30', 5, 'MIT', '2 years experience as  IT officer,  should have knowledge of software pragrams etc', 'ASP.net', '50,000'),
-(3, 'Broadway Infosys', 'Marketing Executive', '25-35', 4, 'BBS', 'should be proficent in marketing, should have at least 3 year experience of marketing manager', 'Sales and Marketing', '20000'),
-(4, 'Ainsoft Limited', 'Social Media Marketing', '23-28', 2, 'B.C.A', 'Bachelor’s or master’s degree in marketing or a related field ,Proven working experience in digital marketing, particularly within the industry ,Demonstrable experience leading and managing SEO/SEM, marketing database, and social media advertising campaigns, Solid knowledge of website and marketing analytics tools (e.g., Google Analytics, NetInsight, Omniture, WebTrends, SEMRush, etc.),Experience in setting up and optimizing PPC campaigns on all major search engines,Working knowledge of HTML, CSS, and JavaScript development and constraints', 'Digital Marketing', '20000'),
-(5, 'Broadway Infosys', 'Accountant', '20-28', 1, 'BBA', 'working experience at bank or any financial institution for at least 1 year,  shoud have good knowlege of accounting', 'Handle finance', '30000'),
-(6, 'Softech Foundation', 'Supervisor required', '25-30', 3, 'MSC IT', 'Degree in computer science, IT or similar,Degree or completed courses in business administration would be advantageous.,Practical experience installing and maintaining systems is recommended., At least 2 year experience as it Supervisor', 'managing project', '25000'),
-(7, 'Ainsoft Limited', 'Java Developer', '20-30', 4, 'BIT', 'klsdjdfhdjnvnhdfj', 'it and telecommunication', '50000'),
-(10, 'Bhaktapur Cancer Hospital', 'Health Assistant', '20', 1, 'Bachelor in Nursing', 'we are looking for good health worker working on related field ', 'Nursing from Medical field and somthing related field.', '12500'),
-(12, 'Ainsoft Limited', 'Graphics designer', '20-30', 4, 'BIT', 'fjnkfvfbhf', 'fdhlkffh', '50000');
+(21, 'mdit', 'Frontend dev', '15', 5, 'cs-minqual', 'CSS Cascading Style Sheets (CSS) Box Model Responsive Design Media Queries Flexbox Grid Layout CSS Preprocessors (e.g., SASS, LESS) CSS Frameworks (e.g., Bootstrap, Materialize) HTML HyperText Markup Language (HTML) Semantic HTML Document Object Model (DOM) Accessibility Forms and Input Semantic Web Web Standards Browser Compatibility JavaScript JavaScript (JS) Variables Functions Control Flow Arrays Objects Scope Callbacks Asynchronous Programming Libraries  and Frameworks (e.g., jQuery, Node.js, Angular.js) React.js React.js Virtual DOM JSX Components State Props Lifecycle methods Hooks Redux React Router', 'we are looking for a very energetic and technology passionate individual for the post of frontend developer in our company, one needs to have good understanding of core programming concepts and must have work in a required field for around or more than 6 years of work experience. Candidate from Kathmandu area will be higly preferable. He/she must be familair with core concept of HTML, CSS and JavaScript (JS). He/She should be above 21 years old and must posses above 60 percentages in related field like CSIT or BIT etc. He/She must have knowledge in CSS Cascading Style Sheets (CSS) Box Model Responsive Design Media Queries Flexbox Grid React.js Virtual DOM JSX Components State Props Lifecycle methods and deeply understanding in javaScript like Variables Functions Control Flow Arrays Objects. CSS Cascading Style Sheets (CSS) Box Model Responsive Design Media Queries Flexbox Grid Layout CSS Preprocessors (e.g., SASS, LESS) CSS Frameworks (e.g., Bootstrap, Materialize) HTML HyperText Markup Language (HTML) Semantic HTML Document Object Model (DOM) Accessibility Forms and Input Semantic Web Web Standards Browser Compatibility JavaScript JavaScript (JS)', '5000'),
+(22, 'Bhaktapur Cancer Hospital', 'It Assistant', '22', 3, 'BE Tech', 'Front end developer skills, JavaScript Developer, HTML CSS ', 'we are looking for frontend developer l HTML, CSS and JavaScript (JS).  CSIT or BITCSS Cascading Style Sheets (CSS) Box Model Responsive Design Media Queries Flexbox Grid React.js  methods and  Objects.', '50000'),
+(23, 'MDIT', 'Frontend Developer ', '20-30', 2, 'Csit', 'CSS Cascading Style Sheets (CSS) Box Model Responsive Design Media Queries Flexbox Grid Layout CSS Preprocessors (e.g., SASS, LESS) CSS Frameworks (e.g., Bootstrap, Materialize) HTML HyperText Markup Language (HTML) Semantic HTML Document Object Model (DOM) Accessibility Forms and Input Semantic Web Web Standards Browser Compatibility JavaScript JavaScript (JS) Variables Functions Control Flow Arrays Objects Scope Callbacks Asynchronous Programming Libraries  and Frameworks (e.g., jQuery, Node.js, Angular.js) React.js React.js Virtual DOM JSX Components State Props Lifecycle methods Hooks Redux React Router', 'we are looking for a very energetic and technology passionate individual for the post of frontend developer in our company, one needs to have good understanding of core programming concepts and must have work in a required field for around or more than 6 years of work experience. Candidate from Kathmandu area will be higly preferable. He/she must be familair with core concept of HTML, CSS and JavaScript (JS). He/She should be above 21 years old and must posses above 60 percentages in related field like CSIT or BIT etc. He/She must have knowledge in CSS Cascading Style Sheets (CSS) Box Model Responsive Design Media Queries Flexbox Grid React.js Virtual DOM JSX Components State Props Lifecycle methods and deeply understanding in javaScript like  Variables Functions Control Flow Arrays Objects.', '50000'),
+(24, 'sunrise', 'Devops', '20-35', 10, 'MIT', 'Continuous Integration (CI) Continuous Delivery (CD) Infrastructure as Code (IaC) Configuration Management Cloud Computing Containers (Docker, Kubernetes) Agile Methodology DevOps Culture and Practices Git and Version Control Monitoring and Logging Automation Tools (Jenkins, Ansible, Chef, Puppet)', 'we are looking for a very energetic and technology passionate individual for the post of DevOps / CD CI developer in our company, one needs to have good understanding of core programming concepts and must have work in a required field for around or more than 6 years of work experience. Candidate from Kathmandu area will be higly preferable. He/she must be familair with core concept of Web Development including HTML, CSS and JavaScript (JS). He/She should be above 21 years old and must posses above 60 percentages in related field like CSIT or BIT etc. He/She must have knowledge in Web development, testing, deployment, debugging, maintanance of a software. Some of the point should be possessed by a developer Continuous Integration (CI) Continuous Delivery (CD) Infrastructure as Code (IaC) Configuration Management Cloud Computing Containers (Docker, Kubernetes) Agile Methodology DevOps Culture and Practices Git and Version Control Monitoring and Logging Automation Tools (Jenkins, Ansible, Chef, Puppet).', '30000');
 
 -- --------------------------------------------------------
 
@@ -279,13 +290,17 @@ CREATE TABLE `job_specification` (
 --
 
 INSERT INTO `job_specification` (`jobspec_id`, `jobid`, `job_title`, `Specification`) VALUES
-(1, 2, 'Software Professional Required', 'We are looking for a experienced  Software Professional Required who are willing to work at our company and expand their knowledge. The candidate must be of age group 20-30. They must  at least have degree of MIT. Additional requirement include : 2 years experience as  IT officer,  should have knowledge of software pragrams etc.'),
-(2, 4, 'Social Media Marketing', 'We are looking for a experienced  Social Media Marketing who are willing to work at our company and expand their knowledge. The candidate must be of age group 23-28. They must  at least have degree of B.C.A. Additional requirement include : Bachelor’s or master’s degree in marketing or a related field ,Proven working experience in digital marketing, particularly within the industry ,Demonstrable experience leading and managing SEO/SEM, marketing database, and social media advertising campaigns, Solid knowledge of website and marketing analytics tools (e.g., Google Analytics, NetInsight, Omniture, WebTrends, SEMRush, etc.),Experience in setting up and optimizing PPC campaigns on all major search engines,Working knowledge of HTML, CSS, and JavaScript development and constraints.'),
 (3, 6, 'Supervisor required', 'We are looking for a experienced  Supervisor required who are willing to work at our company and expand their knowledge. The candidate must be of age group 25-30. They must  at least have degree of MSC IT. Additional requirement include : Degree in computer science, IT or similar,Degree or completed courses in business administration would be advantageous.,Practical experience installing and maintaining systems is recommended., At least 2 year experience as it Supervisor.'),
 (4, 3, 'Marketing Executive', 'We are looking for a experienced  Marketing Executive who are willing to work at our company and expand their knowledge. The candidate must be of age group 25-35. They must  at least have degree of BBS. Additional requirement include : should be proficent in marketing, should have at least 3 year experience of marketing manager.'),
 (5, 5, 'Accountant', 'We are looking for a experienced  Accountant who are willing to work at our company and expand their knowledge. The candidate must be of age group 20-28. They must  at least have degree of BBA. Additional requirement include : working experience at bank or any financial institution for at least 1 year,  shoud have good knowlege of accounting.'),
 (6, 7, 'Java Developer', 'We are looking for a experienced  Java Developer who are willing to work at our company located at located at Balkhu , Kathmandu and expand their knowledge. The candidate must be of age group 20-30. They must  at least have degree of BIT. Additional requirement include : klsdjdfhdjnvnhdfj.'),
-(8, 12, 'Graphics designer', 'We are looking for a experienced  Graphics designer who are willing to work at our company located at \r\n    located at  ,  and expand their knowledge. \r\n    The candidate must be of age group 20-30. \r\n    They must  at least have degree of BIT. Additional requirement include : fjnkfvfbhf.');
+(8, 12, 'Graphics designer', 'We are looking for a experienced  Graphics designer who are willing to work at our company located at \r\n    located at  ,  and expand their knowledge. \r\n    The candidate must be of age group 20-30. \r\n    They must  at least have degree of BIT. Additional requirement include : fjnkfvfbhf.'),
+(11, 2, 'Software Professional Required', 'We are looking for a experienced  Software Professional Required who are willing to work at our company and expand their knowledge. The candidate must be of age group 20-30. They must  at least have degree of MIT. Additional requirement include : 2 years experience as  IT officer,  should have knowledge of software pragrams etc.'),
+(17, 21, 'Front end dev', 'what the heck'),
+(21, 4, 'Social Media Marketing', 'We are looking for a experienced  Social Media Marketing who are willing to work at our company and expand their knowledge. The candidate must be of age group 23-28. They must  at least have degree of B.C.A. Additional requirement include : Bachelor’s or master’s degree in marketing or a related field ,Proven working experience in digital marketing, particularly within the industry ,Demonstrable experience leading and managing SEO/SEM, marketing database, and social media advertising campaigns, Solid knowledge of website and marketing analytics tools (e.g., Google Analytics, NetInsight, Omniture, WebTrends, SEMRush, etc.),Experience in setting up and optimizing PPC campaigns on all major search engines,Working knowledge of HTML, CSS, and JavaScript development and constraints.'),
+(22, 21, 'sanish', 'We are looking for a experienced  sanish who are willing to work at our company located at located at Katunje  , Bhaktapur and expand their knowledge. The candidate must be of age group 15. They must  at least have degree of cs-minqual. Additional requirement include : CSS Cascading Style Sheets (CSS) Box Model Responsive Design Media Queries Flexbox Grid Layout CSS Preprocessors (e.g., SASS, LESS) CSS Frameworks (e.g., Bootstrap, Materialize) HTML HyperText Markup Language (HTML) Semantic HTML Document Object Model (DOM) Accessibility Forms and Input Semantic Web Web Standards Browser Compatibility JavaScript JavaScript (JS) Variables Functions Control Flow Arrays Objects Scope Callbacks Asynchronous Programming Libraries  and Frameworks (e.g., jQuery, Node.js, Angular.js) React.js React.js Virtual DOM JSX Components State Props Lifecycle methods Hooks Redux React Router.'),
+(23, 23, 'Frontend Developer ', 'We are looking for a experienced  Frontend Developer  who are willing to work at our company located at located at Katunje  , Bhaktapur and expand their knowledge. The candidate must be of age group 20-30. They must  at least have degree of Csit. Additional requirement include : CSS Cascading Style Sheets (CSS) Box Model Responsive Design Media Queries Flexbox Grid Layout CSS Preprocessors (e.g., SASS, LESS) CSS Frameworks (e.g., Bootstrap, Materialize) HTML HyperText Markup Language (HTML) Semantic HTML Document Object Model (DOM) Accessibility Forms and Input Semantic Web Web Standards Browser Compatibility JavaScript JavaScript (JS) Variables Functions Control Flow Arrays Objects Scope Callbacks Asynchronous Programming Libraries  and Frameworks (e.g., jQuery, Node.js, Angular.js) React.js React.js Virtual DOM JSX Components State Props Lifecycle methods Hooks Redux React Router.'),
+(24, 24, 'Devops', 'We are looking for a experienced  Devops who are willing to work at our company located at located at Bhaktapur , naya pati and expand their knowledge. The candidate must be of age group 20-35. They must  at least have degree of MIT. Additional requirement include : Continuous Integration (CI) Continuous Delivery (CD) Infrastructure as Code (IaC) Configuration Management Cloud Computing Containers (Docker, Kubernetes) Agile Methodology DevOps Culture and Practices Git and Version Control Monitoring and Logging Automation Tools (Jenkins, Ansible, Chef, Puppet).');
 
 -- --------------------------------------------------------
 
@@ -304,10 +319,10 @@ CREATE TABLE `news_master` (
 --
 
 INSERT INTO `news_master` (`NewsId`, `News`, `NewsDate`) VALUES
-(0, 'asdasdADSadsASD', ''),
-(2, 'Stay Safe', '2021-05-12'),
-(3, 'Happy 2021', '2021-05-27'),
-(4, 'Happy New Year', '2022-01-01');
+(0, 'Sunrise Bank announce vacancy for differenet Post.', '2023-05-12'),
+(2, 'Vacancy data extented by Global IME Bank to December 25th 2023', '2023-05-12'),
+(3, 'Happy New year 2080 to all the People', '2023-05-27'),
+(4, 'BMC JOB Station announce new web application. Application will lunch on new year 2080', '2023-01-01');
 
 -- --------------------------------------------------------
 
@@ -331,6 +346,7 @@ CREATE TABLE `walkin_master` (
 --
 
 INSERT INTO `walkin_master` (`WalkInId`, `CompanyName`, `JobTitle`, `Vacancy`, `MinQualification`, `Description`, `InterviewDate`, `InterviewTime`) VALUES
+(0, 'Ainsoft Limited', 'Cleaner', 23, 'Graduate', 'sfd', '2023-05-25', '16:07'),
 (2, 'Ainsoft Limited', 'Fresher Required', 5, 'B.C.A', 'Hardware Personal Required', '2021-05-12', '10:00');
 
 --
@@ -414,7 +430,7 @@ ALTER TABLE `walkin_master`
 -- AUTO_INCREMENT for table `about_myself`
 --
 ALTER TABLE `about_myself`
-  MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `admin_login`
@@ -426,31 +442,43 @@ ALTER TABLE `admin_login`
 -- AUTO_INCREMENT for table `application_master`
 --
 ALTER TABLE `application_master`
-  MODIFY `ApplicationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ApplicationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `employer_reg`
 --
 ALTER TABLE `employer_reg`
-  MODIFY `Employer_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `Employer_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `FeedbackId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `FeedbackId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `jobseeker_education`
 --
 ALTER TABLE `jobseeker_education`
-  MODIFY `EduId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `EduId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `jobseeker_reg`
 --
 ALTER TABLE `jobseeker_reg`
-  MODIFY `JobSeekId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `JobSeekId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `job_master`
+--
+ALTER TABLE `job_master`
+  MODIFY `JobId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `job_specification`
+--
+ALTER TABLE `job_specification`
+  MODIFY `jobspec_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
