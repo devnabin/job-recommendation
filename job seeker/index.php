@@ -81,12 +81,12 @@ include('similarity.php')
               </a>
             </li>
             <li class="nav-item">
-              <h6 class="nav-link d-flex justify-content-between align-items-center text-muted">
+              <!-- <h6 class="nav-link d-flex justify-content-between align-items-center text-muted">
                 <span>Saved reports</span>
                 <a class="d-flex align-items-center text-muted" href="#">
                   <span class="feather" data-feather="plus-circle"></span>
                 </a>
-              </h6>
+              </h6> -->
             </li>
             <li class="nav-item">
               <a class="nav-link" href="walking.php">
@@ -174,28 +174,33 @@ include('similarity.php')
 
 
 
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 
-        <div class="container-fluid bg-warning p-3 mb-5">
+
+
+      <main role="main" class="d-flex justify-content-evenl col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+        <div class="container-fluid bg-primary p-3 mt-5 dontdo">
           <div class="row">
             <div class="col">
               <h1 class="h2 text-center text-white">Recommended Jobs 💼</h1>
             </div>
           </div>
         </div>
+      </main>
+      <main role="main" class="d-flex justify-content-evenl col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+
         <?php
         $ID = $_SESSION['userid'];
         include 'connection/db.php';
 
         //for job seeker
-        $sql1 = "select * from about_myself where jobseek_id='" . $ID . "'  ";
+        $sql1 = "select * from jobseeker_reg where JobSeekID='" . $ID . "'  ";
 
         // making sql query
         $result1 = mysqli_query($conn, $sql1);
         $row1 = mysqli_fetch_array($result1);
 
         // First parameter for cosine value
-        $text1 = $row1['about_me'];
+        $text1 = $row1['Qualification'] . " " . $row1['Experience'] . " " . $row1['Gender'] . " " . $row1['age'];
 
         $sql2 = "select * from job_master";
         $result2 = mysqli_query($conn, $sql2);
@@ -208,12 +213,6 @@ include('similarity.php')
 
           $JobTitle = $row2['JobTitle'];
 
-          echo "<br />";
-          echo "<br />";
-          echo $JobTitle;
-          echo "<br />";
-          echo "<br />";
-
           //2nd parameter for calculating cosine value
           $text2 = $row2['CompanyName'] . ' ' . $row2['JobTitle'] . ' ' . $row2['Age'] . ' ' . $row2['MinQualification'] . ' ' . $row2['Requirement'] . ' ' . $row2['Description'] . ' ' . $row2['ExpectedSalary'];
 
@@ -223,10 +222,10 @@ include('similarity.php')
           // making string of array
           $array_text1 = explode(" ", $text1);
           $array_text2 = explode(" ", $text2);
-          $array_text3 = explode(" ", $text3);
+          // $array_text3 = explode(" ", $text3);
 
 
-          $base = Similarity::dot($array_text3);
+          $base = Similarity::dot($array_text2);
 
           // checking cosine value
           // echo 'Cosine Similarity is ' . Similarity::cosine($array_text1, $array_text2, $dot);
@@ -241,7 +240,7 @@ include('similarity.php')
           // echo "<br />";
           // echo $sim_percent;
 
-          if ($sim_percent >= 45) {
+          if ($sim_percent >= 50) {
 
             // print_r($base);
             // echo '<br>';
@@ -258,15 +257,14 @@ include('similarity.php')
               <div class="card-body" style="background-color: #f0f0f0;">
 
 
-
-                <div class="mb-2 d-flex align-items-center justify-content-center bg-info">
+                <div class="mb-2 d-flex align-items-center justify-content-center bg-success   py-2">
                   <h3>JOB - <?php echo $row2['JobId']; ?></h3>
                 </div>
 
 
                 <!-- card content -->
 
-                <p style="text-align: justify; font-size: 1rem;">CompanyName : <b><?php echo $row2['CompanyName']; ?></b></p>
+                <p style="text-align: justify; font-size: 1rem;">Company : <b><?php echo $row2['CompanyName']; ?></b></p>
                 <p style="text-align: justify; font-size: 1rem;">JobTitle : <b><?php echo $row2['JobTitle']; ?></b></p>
                 <p style="text-align: justify; font-size: 1rem;">Vacancy : <b><?php echo $row2['Vacancy']; ?></b></p>
                 <p style="text-align: justify; font-size: 1rem;">Qualification : <b><?php echo $row2['MinQualification']; ?></b></p>

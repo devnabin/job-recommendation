@@ -75,12 +75,12 @@ if (!isset($_SESSION['uname'])) {
                 Relevant Job
               </a>
             </li>
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
               <span>Saved reports</span>
               <a class="d-flex align-items-center text-muted" href="#">
                 <span data-feather="plus-circle"></span>
               </a>
-            </h6>
+            </h6> -->
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
                 <a class="nav-link" href="walking.php">
@@ -99,10 +99,25 @@ if (!isset($_SESSION['uname'])) {
       </nav>
 
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-          <h1 class="h2" style="text-transform:uppercase;">Walking Interview </h1>
-        </div>
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2" style="text-transform:uppercase;">Walking Interview </h1>
+  </div>
 
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead class="bg-primary text-white">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Company Name</th>
+          <th scope="col">Job Title</th>
+          <th scope="col">Vacancy</th>
+          <th scope="col">Qualification</th>
+          <th scope="col">Description</th>
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
+        </tr>
+      </thead>
+      <tbody>
         <?php
         // Establish Connection with Database
         include 'connection/db.php';
@@ -123,84 +138,27 @@ if (!isset($_SESSION['uname'])) {
           $InterviewTime = $row['InterviewTime'];
 
         ?>
-          <table width="100%" border="1" bordercolor="#1CB5F1">
-
-            <tr style="color:#fff">
-              <th width="5%" bgcolor="#1CB5F1" class="style3"><img src="../design/ico_cat.gif" alt="" width="8" height="9" /></th>
-              <th width="26%" height="32" bgcolor="#1CB5F1" class="style3">
-                <div align="left" class="style9 style5"><strong>Company Name</strong>:</div>
-              </th>
-              <th width="69%" height="32" bgcolor="#1CB5F1" class="style3">
-                <div align="left"><strong><?php echo $CompanyName; ?></strong></div>
-              </th>
-            </tr>
-
-            <tr>
-              <td class="style3"><img src="../design/ico_cat.gif" alt="" width="8" height="9" /></td>
-              <td class="style3">
-                <div align="left"><strong>Job Title:</strong></div>
-              </td>
-              <td class="style3">
-                <div align="left" class="style9 style5"><strong><?php echo $JobTitle; ?></strong></div>
-              </td>
-            </tr>
-            <tr>
-              <td class="style3"><img src="../design/ico_cat.gif" alt="" width="8" height="9" /></td>
-              <td class="style3">
-                <div align="left" class="style9 style5"><strong>Vacancy</strong>:</div>
-              </td>
-              <td class="style3">
-                <div align="left" class="style9 style5"><strong><?php echo $Vacancy; ?></strong></div>
-              </td>
-            </tr>
-            <tr>
-              <td class="style3"><img src="../design/ico_cat.gif" alt="" width="8" height="9" /></td>
-              <td class="style3">
-                <div align="left" class="style9 style5"><strong>Qualification:</strong></div>
-              </td>
-              <td class="style3">
-                <div align="left" class="style9 style5"><strong><?php echo $MinQualification; ?></strong></div>
-              </td>
-            </tr>
-            <tr>
-              <td class="style3"><img src="../design/ico_cat.gif" alt="" width="8" height="9" /></td>
-              <td class="style3">
-                <div align="left" class="style9 style5"><strong>Description:</strong></div>
-              </td>
-              <td class="style3">
-                <div align="left" class="style9 style5"><strong><?php echo $Description; ?></strong></div>
-              </td>
-            </tr>
-            <tr>
-              <td class="style3"><img src="../design/ico_cat.gif" alt="" width="8" height="9" /></td>
-              <td class="style3">
-                <div align="left" class="style9 style5"><strong>Date:</strong></div>
-              </td>
-              <td class="style3">
-                <div align="left" class="style9 style5"><strong><?php echo $InterviewDate; ?></strong></div>
-              </td>
-            </tr>
-            <tr>
-              <td class="style3"><img src="../design/ico_cat.gif" alt="" width="8" height="9" /></td>
-              <td class="style3">
-                <div align="left" class="style9 style5"><strong>Time:</strong></div>
-              </td>
-              <td class="style3">
-                <div align="left" class="style9 style5"><strong><?php echo $InterviewTime; ?></strong></div>
-              </td>
-            </tr>
-          <?php
+          <tr>
+            <td><?php echo $Id; ?></td>
+            <td><?php echo $CompanyName; ?></td>
+            <td><?php echo $JobTitle; ?></td>
+            <td><?php echo $Vacancy; ?></td>
+            <td><?php echo $MinQualification; ?></td>
+            <td><?php echo $Description; ?></td>
+            <td><?php echo $InterviewDate; ?></td>
+            <td><?php echo $InterviewTime; ?></td>
+          </tr>
+        <?php
         }
 
-          ?>
-          </table>
+        // Close the connection
+        mysqli_close($conn);
+        ?>
+      </tbody>
+    </table>
+  </div>
+</main>
 
-          <?php
-          // Close the connection
-          mysqli_close($conn);
-          ?>
-
-      </main>
     </div>
   </div>
 
