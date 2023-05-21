@@ -13,7 +13,7 @@ if($conn){
 ?>
 
 <script>
-	alert('connection successful');
+	console.log('connection successful');
 </script>
 
 <?php

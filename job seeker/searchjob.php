@@ -177,12 +177,12 @@ $queryString_Recordset2 = sprintf("&totalRows_Recordset2=%d%s", $totalRows_Recor
                 Relevant Job
               </a>
             </li>
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
               <span>Saved reports</span>
               <a class="d-flex align-items-center text-muted" href="#">
                 <span data-feather="plus-circle"></span>
               </a>
-            </h6>
+            </h6> -->
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
                 <a class="nav-link" href="walking.php">

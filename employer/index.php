@@ -63,12 +63,7 @@ if (!isset($_SESSION['name'])) {
                 Manage Job
               </a>
             </li>
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Saved reports</span>
-              <a class="d-flex align-items-center text-muted" href="#">
-                <span data-feather="plus-circle"></span>
-              </a>
-            </h6>
+
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
                 <a class="nav-link" href="walking.php">
@@ -95,51 +90,78 @@ if (!isset($_SESSION['name'])) {
 
 
         <table width="100%" border="0">
-          <tr>
+          
+          <tr style="padding-bottom: 10px;">
             <td>
-              <div align="center"><img src="img/Home.png" alt="" width="64" height="64" /></div>
+              <div align="center">
+                <a href="index.php">
+                  <div style="background-color: #A0B9F3; padding: 10px; border-radius: 10px; width: 150px;">
+                    <img src="img/Home.png" alt="" width="64" height="64" /><br>
+                    <strong>Home</strong>
+                  </div>
+                </a>
+              </div>
             </td>
             <td>
-              <div align="center"><img src="img/Profile.png" alt="" width="64" height="64" /></div>
+              <div align="center">
+                <a href="profile.php">
+                  <div style="background-color: #A0B9F3; padding: 10px; border-radius: 10px; width: 150px;">
+                    <img src="img/Profile.png" alt="" width="64" height="64" /><br>
+                    <strong>Profile</strong>
+                  </div>
+                </a>
+              </div>
             </td>
             <td>
-              <div align="center"><img src="img/Search.png" alt="" width="64" height="64" /></div>
+              <div align="center">
+                <a href="managejob.php">
+                  <div style="background-color: #A0B9F3; padding: 10px; border-radius: 10px; width: 150px;">
+                    <img src="img/Search.png" alt="" width="64" height="64" /><br>
+                    <strong>Manage JOB</strong>
+                  </div>
+                </a>
+              </div>
             </td>
           </tr>
-          <tr>
-            <td bgcolor="#A0B9F3">
-              <div align="center"><a href="index.php"><strong>Home</strong></a></div>
-            </td>
-            <td bgcolor="#A0B9F3">
-              <div align="center"><a href="profile.php"><strong>Profile</strong></a></div>
-            </td>
-            <td bgcolor="#A0B9F3">
-              <div align="center"><a href="managejob.php"><strong>Manage JOB</strong></a></div>
-            </td>
-          </tr>
-          <tr>
+          <br />
+          <br />
+          <br />
+          <tr class="mt-4 inl">
             <td>
-              <div align="center"><img src="img/Interview.png" alt="" width="64" height="64" /></div>
-            </td>
-            <td>
-              <div align="center"><img src="img/Feedback.png" alt="" width="64" height="64" /></div>
+              <div align="center">
+                <a href="walking.php">
+                  <div style="background-color: #A0B9F3; padding: 10px; border-radius: 10px; width: 150px;">
+                    <img src="img/Interview.png" alt="" width="64" height="64" /><br>
+                    <strong>Walking</strong>
+                  </div>
+                </a>
+              </div>
             </td>
             <td>
-              <div align="center"><img src="img/Log.png" alt="" width="64" height="64" /></div>
+              <div align="center">
+                <a href="application.php">
+                  <div style="background-color: #A0B9F3; padding: 10px; border-radius: 10px; width: 150px;">
+                    <img src="img/Feedback.png" alt="" width="64" height="64" /><br>
+                    <strong>Application</strong>
+                  </div>
+                </a>
+              </div>
+            </td>
+            <td>
+              <div align="center">
+                <a href="logout.php">
+                  <div style="background-color: #A0B9F3; padding: 10px; border-radius: 10px; width: 150px;">
+                    <img src="img/Log.png" alt="" width="64" height="64" /><br>
+                    <strong>Logout</strong>
+                  </div>
+                </a>
+              </div>
             </td>
           </tr>
-          <tr>
-            <td bgcolor="#A0B9F3">
-              <div align="center"><a href="walking.php"><strong>Walking</strong></a></div>
-            </td>
-            <td bgcolor="#A0B9F3">
-              <div align="center"><a href="application.php"><strong>Application</strong></a></div>
-            </td>
-            <td bgcolor="#A0B9F3">
-              <div align="center"><a href="logout.php"><strong>Logout</strong></a></div>
-            </td>
-          </tr>
+
+          
         </table>
+
 
       </main>
     </div>

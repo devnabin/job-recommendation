@@ -9,17 +9,13 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
-    <title>bmc jobstation</title>
+    <title>Bmc-JobStation</title>
 
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
 
     <link rel="stylesheet" href="assets/css/style.css">
-
-    <!-- tailwind css -->
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet" /> -->
 
 </head>
 
@@ -108,13 +104,10 @@
                 <form class="d-flex justify-content-center" role="search">
                     <form class="d-flex justify-content-center" role="search">
                         <input style="width : 400px;" class="form-control me-2" type="search" placeholder="Find Your Next Job." aria-label="Search">
-                        &nbsp; <button class="" href="#trainers" style=" border-color: orangered; " type="submit">Search</button>
+                        &nbsp;
+                        <button class="" href="#trainers" style=" border-color: orangered;">Search</button>
                     </form>
-                    <!-- <input class="form-control me-2" type="search" placeholder="Enter Job Title or Keyword" aria-label="Search">
-
-                    <button class="btn btn-outline-success" type="submit">Search Jobs</button> -->
                 </form>
-
             </div>
         </div>
     </div>
@@ -132,7 +125,7 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
                         <h2>Featured <em>Jobs</em></h2>
-                        <img src="assets/images/line-dec.png" alt="">
+                        <!-- <img src="assets/images/line-dec.png" alt=""> -->
                         <p>Choose a job you love, and you will never have to work a day in your life.</p>
                     </div>
                 </div>
@@ -159,7 +152,15 @@
 
                                     <h4><?php echo $row['CompanyName']; ?></h4>
 
-                                    <p><?php echo $row['JobTitle']; ?> &nbsp;/&nbsp; <?php echo $row['Description']; ?></p>
+                                    <p>
+                                        <?php echo $row['JobTitle']; ?> &nbsp;/&nbsp;
+
+                                        <?php
+                                        $limited_text = substr($row['Description'], 0, 300);
+                                        echo "<td>$limited_text...</td>";
+                                        ?>
+                                        <!-- <?php echo $row['Description']; ?> -->
+                                    </p>
                                 </div>
                             </div>
                         </a>
@@ -184,7 +185,7 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
                         <h2><em>User Testimonials</em></h2>
-                        <img src="assets/images/line-dec.png" alt="">
+                        <!-- <img src="assets/images/line-dec.png" alt=""> -->
                         <p>In this section, we display news published by admin</p>
                     </div>
                 </div>
@@ -194,14 +195,14 @@
                 <?php
                 $testimonials = array(
                     array(
-                        "name" => "John Doe",
-                        "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac mi vel sem porta scelerisque. Duis quis nunc luctus, posuere arcu a, placerat mi.",
-                        "image" => "https://dummyimage.com/300x300/ccc/000&text=John+Doe"
+                        "name" => "Arjan Bhattarai",
+                        "content" => "Working with BMC Job Station on a recent frontend development project was a pleasure. Their skills in frontend development were impressive, and they demonstrated great attention to detail. BMC Job Station was communicative, collaborative, and responsive to feedback throughout the project. I highly recommend them for any frontend development work.",
+                        "image" => "assets/images/arjan.jpg"
                     ),
                     array(
-                        "name" => "Jane Smith",
-                        "content" => "Vestibulum eget posuere ante. Morbi tempor libero vitae orci consequat viverra. Aenean dapibus mi vel leo malesuada, vel semper quam pellentesque.",
-                        "image" => "https://dummyimage.com/300x300/ccc/000&text=Jane+Smith"
+                        "name" => "Bidhan Jha",
+                        "content" => "I had the pleasure of working with BMC Job Station on a recent frontend development project. Their attention to detail and commitment to delivering high-quality work was evident throughout the entire project. I found them to be a skilled and dedicated developer who was able to navigate complex requirements with ease. I highly recommend BMC Job Station happily work with them again in the future.",
+                        "image" => "assets/images/bidhan.jpg"
                     )
                 );
 
@@ -209,8 +210,14 @@
                     echo '<div class="col-lg-6 mb-4">';
                     echo '<div class="card h-100">';
                     echo '<div class="card-body">';
-                    echo '<img src="' . $testimonial["image"] . '" class="img-fluid mb-3" alt="' . $testimonial["name"] . '">';
-                    echo '<p class="card-text">' . $testimonial["content"] . '</p>';
+                    echo '<img src="' . $testimonial["image"] . '" class="img-fluid mb-3 img-fluid custom-size" alt="' . $testimonial["name"] . '" />';
+                    echo '<style>
+                    .custom-size {
+                        width: 300px;
+                        height: 300px;
+                      }
+                      </style>';
+                    echo '<p class="card-text text-justify">' . $testimonial["content"] . '</p>';
                     echo '<p class="card-text"><small class="text-muted">' . $testimonial["name"] . '</small></p>';
                     echo '</div>';
                     echo '</div>';
@@ -230,7 +237,7 @@
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading text-center">
                         <h2>Read our <em>News</em></h2>
-                        <img src="assets/images/line-dec.png" alt="" class="mx-auto">
+                        <!-- <img src="assets/images/line-dec.png" alt="" class="mx-auto"> -->
                         <p class="mt-4">In this section, we display news published by admin</p>
                     </div>
                 </div>
@@ -302,8 +309,8 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-heading">
-                        <h2>Read our <em>Testimonials</em></h2>
-                        <img src="assets/images/line-dec.png" alt="waves">
+                        <h2>Our Core <em>Members</em></h2>
+                        <!-- <img src="assets/images/line-dec.png" alt="waves"> -->
                         <p>What our team member say 🗣️</p>
                     </div>
                 </div>
@@ -311,20 +318,23 @@
                     <ul class="features-items">
                         <li class="feature-item">
                             <div class="left-icon">
-                                <img src="assets/images/dummy.png" alt="First One" style="width:150px ; height:100px">
+                                <img src="assets/images/nabinpp.png" alt="First One" style="width:150px ; height:100px">
                             </div>
                             <div class="right-content">
-                                <h4>Nabin</h4>
-                                <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitati!"</em></p>
+                                <h4>Nabin Bhandari</h4>
+                                <p><em>"It's me nabin Bhandari working as a full time frontend devloper in BMC job solution"</em>
+                                <p>+977-9812870775</p>
+                                </p>
                             </div>
                         </li>
                         <li class="feature-item">
                             <div class="left-icon">
-                                <img src="assets/images/dummy.png" alt="second one" style="width:150px ; height:100px">
+                                <img src="assets/images/bimalpp.jpg" alt="second one" style="width:150px ; height:100px" class="custom-size">
                             </div>
                             <div class="right-content">
-                                <h4>Bimal</h4>
-                                <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessitat"</em></p>
+                                <h4>Bimal Shrestha</h4>
+                                <p><em>"It's me Bimal Shrestha working as a full time Content Creater & SEO expert in BMC job solution"</em>
+                                <p>+977-9817725685</p>
                             </div>
                         </li>
                     </ul>
@@ -333,11 +343,12 @@
                     <ul class="features-items">
                         <li class="feature-item">
                             <div class="left-icon">
-                                <img src="assets/images/dummy.png" alt="fourth muscle" style="width:150px ; height:100px">
+                                <img src="assets/images/chetanpp.jpg" alt="fourth muscle" style="width:150px ; height:100px">
                             </div>
                             <div class="right-content">
-                                <h4>Chetan</h4>
-                                <p><em>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta numquam maxime voluptatibus, impedit sed! Necessit"</em></p>
+                                <h4>Chetan Budhathoki</h4>
+                                <p><em>"It's me Chetan Budhathoki, working as a full time Ui/Ux devloper in BMC job solution"</em>
+                                <p>+977-9823587458</p>
                             </div>
                         </li>
                     </ul>
@@ -377,41 +388,42 @@
             <div class="col-lg-6 offset-lg-3">
                 <div class="section-heading dark-bg">
                     <h2><em>Contact Us</em></h2>
-                    <img src="assets/images/line-dec.png" alt="">
-                    <p>If opportunity doesn't knock, build a door.</p>
+                    <!-- <img src="assets/images/line-dec.png" alt=""> -->
+                    <p class="text-dark">If opportunity doesn't knock, build a door.</p>
                 </div>
             </div>
         </div>
         <!-- <h2 class="text-center mb-5">Contact Us</h2> -->
         <div class="row">
             <div class="col-md-4 mb-4">
-                <h3>Our Address</h3>
-                <address>
-                    123 Main St<br>
-                    New York, NY 10001<br>
-                    USA
-                </address>
-            </div>
-            <div class="col-md-4 mb-4">
-                <h3>Contact Number</h3>
-                <ul class="list-unstyled">
-                    <li><i class="bi bi-telephone-fill me-3"></i>+1 (123) 456-7890</li>
-                    <li><i class="bi bi-envelope-fill me-3"></i><a href="mailto:info@example.com">info@example.com</a></li>
-                </ul>
-            </div>
-            <div class="col-md-4 mb-4">
-                <h3>Our Staff</h3>
-                <div class="card">
-                    <img src="https://dummyimage.com/400x400/000/fff&text=Staff+Image" class="card-img-top rounded-circle" alt="Staff Image">
+                <h3>Our Information Officer</h3>
+                <br>
+                <div class="">
+                    <img src="assets/images/information.jpg" class="card-img-top rounded-circle" alt="Staff Image">
                     <div class="card-body">
-                        <h5 class="card-title">John Doe</h5>
+                        <h5 class="card-title">Ram Hari Ghimire</h5>
                         <ul class="list-unstyled">
-                            <li><i class="bi bi-telephone-fill me-3"></i>+1 (123) 456-7890</li>
-                            <li><i class="bi bi-envelope-fill me-3"></i><a href="mailto:john@example.com">john@example.com</a></li>
+                            <li><i class="bi bi-telephone-fill me-3"></i>+977 981256874</li>
+                            <li><i class="bi bi-envelope-fill me-3"></i><a href="mailto:ram@example.com">ramhari@example.com</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
+            <div class="col-md-4 mb-4">
+                <h3></h3>
+                <address>
+
+                </address>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h3>Contact Number</h3>
+                <br>
+                <ul class="list-unstyled">
+                    <li><i class="bi bi-telephone-fill me-3"></i>Phone: +977 981285687</li>
+                    <li><i class="bi bi-envelope-fill me-3"></i><a href="mailto:bmcjobstation@example.com">info@example.com</a></li>
+                </ul>
+            </div>
+
         </div>
     </div>
     <!-- location end -->
@@ -427,8 +439,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p>
-                        bmc JOb Station © 2023 jobstation.com
+                    <p style="font-size: 20px;">
+                        Bmc Job Station © 2023 jobstation.com
                     </p>
                 </div>
             </div>

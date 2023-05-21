@@ -1,3 +1,6 @@
+
+
+
 <?php
 session_start();
 if (!isset($_SESSION['uname'])) {
@@ -77,12 +80,12 @@ include('similarity.php')
                 Relevant Job
               </a>
             </li>
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
               <span>Saved reports</span>
               <a class="d-flex align-items-center text-muted" href="#">
                 <span data-feather="plus-circle"></span>
               </a>
-            </h6>
+            </h6> -->
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
                 <a class="nav-link" href="walking.php">
@@ -120,14 +123,14 @@ include('similarity.php')
         include 'connection/db.php';
 
         //for job seeker
-        $sql1 = "select * from about_myself where jobseek_id='" . $ID . "'  ";
+        $sql1 = "select * from jobseeker_reg where JobSeekID='" . $ID . "'  ";
 
         // making sql query
         $result1 = mysqli_query($conn, $sql1);
         $row1 = mysqli_fetch_array($result1);
 
         // First parameter for cosine value
-        $text1 = $row1['about_me'];
+        $text1 = $row1['Qualification'] . " " . $row1['Experience'] . " " . $row1['Gender'] . " " . $row1['age'];
 
         $sql2 = "select * from job_master";
         $result2 = mysqli_query($conn, $sql2);
@@ -140,7 +143,7 @@ include('similarity.php')
           //2nd parameter for calculating cosine value
           $text2 = $row2['CompanyName'] . ' ' . $row2['JobTitle'] . ' ' . $row2['Age'] . ' ' . $row2['MinQualification'] . ' ' . $row2['Requirement'] . ' ' . $row2['Description'] . ' ' . $row2['ExpectedSalary'];
 
-          //concatination for creating base array
+        //concatination for creating base array
           $text3 = $text1 . $text2;
 
           // making string of array
@@ -161,6 +164,7 @@ include('similarity.php')
           $sim_percent = $similarity * 100;
           // echo $sim_percent;
 
+          // echo $sim_percent;
           if ($sim_percent >= 50) {
 
             // print_r($base);
@@ -206,11 +210,19 @@ include('similarity.php')
                           </tr>
                           <tr>
                             <th scope="row">Description</th>
-                            <td><?php echo $row2['Description']; ?></td>
+                            <!-- <td><?php echo $row2['Description']; ?></td> -->
+                            <?php
+                            $limited_text = substr($row2['Description'], 0, 500);
+                            echo "<td>$limited_text...</td>";
+                            ?>
                           </tr>
                           <tr>
                             <th scope="row">Job Specifiction</th>
-                            <td><?php echo $text2; ?></td>
+                            <!-- <td><?php echo $text2; ?></td> -->
+                            <?php
+                            $limited_text = substr($row2['Description'], 0, 200);
+                            echo "<td>$limited_text...</td>";
+                            ?>
                           </tr>
                           <tr>
                             <td colspan="2" class="text-center">

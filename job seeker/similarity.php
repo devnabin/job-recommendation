@@ -9,6 +9,7 @@ class Similarity
 	// it removes dublicate value and gives 0 to every possible tags
 	static public function dot($tags)
 	{
+		// print_r($tags);
 		$tags = array_unique($tags);
 		$tags = array_fill_keys($tags, 0);
 		ksort($tags);
@@ -23,6 +24,7 @@ class Similarity
 			return $a + $b;
 		});
 	}
+	
 	protected function magnitude($point)
 	{
 		$squares = array_map(function ($x) {
@@ -36,11 +38,13 @@ class Similarity
 	{
 		$a = array_fill_keys($a, 1) + $base;
 		$b = array_fill_keys($b, 1) + $base;
+
 		ksort($a);
 		ksort($b);
 
 		// from chat gpt 
 		$similarity = new Similarity();
+
 		return $similarity->dot_product($a, $b) / ($similarity->magnitude($a) * $similarity->magnitude($b));
 
 		// from our research                                         

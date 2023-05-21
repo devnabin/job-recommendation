@@ -65,12 +65,7 @@ if (!isset($_SESSION['name'])) {
                 Manage Job
               </a>
             </li>
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Saved reports</span>
-              <a class="d-flex align-items-center text-muted" href="#">
-                <span data-feather="plus-circle"></span>
-              </a>
-            </h6>
+     
             <ul class="nav flex-column mb-2">
               <li class="nav-item">
                 <a class="nav-link" href="walking.php">
@@ -220,22 +215,22 @@ if (!isset($_SESSION['name'])) {
               <table width="100%" border="1" bordercolor="black" class="table table-bordered">
                 <tr style="color:#fff">
                   <th height="32" bgcolor="black" class="style3">
-                    <div align="left"><strong>Id</strong></div>
+                    <div align="left" class="text-primary"><strong>Id</strong></div>
                   </th>
                   <th bgcolor="black" class="style3">
-                    <div align="left"><strong>Job Title</strong></div>
+                    <div align="left" class="text-primary"><strong>Job Title</strong></div>
                   </th>
                   <th bgcolor="black" class="style3">
-                    <div align="left"><strong>Vacancy</strong></div>
+                    <div align="left" class="text-primary"><strong>Vacancy</strong></div>
                   </th>
                   <th bgcolor="black" class="style3">
-                    <div align="left"><strong>Qualification</strong></div>
+                    <div align="left" class="text-primary"><strong>Qualification</strong></div>
                   </th>
                   <th bgcolor="black" class="style3">
-                    <div align="left"><strong>Description</strong></div>
+                    <div align="left" class="text-primary"><strong>Description</strong></div>
                   </th>
                   <th bgcolor="black" class="style3">
-                    <div align="left"><strong>Specification</strong></div>
+                    <div align="left" class="text-primary"><strong>Specification</strong></div>
                   </th>
 
                   <th bgcolor="black" class="style3">
@@ -293,9 +288,9 @@ if (!isset($_SESSION['name'])) {
                     <td class="style3">
                       <div align="left" class="style9 style5"><strong><?php echo $Description; ?></strong></div>
                     </td>
-                    <td class="style3">
+                    <!-- <td class="style3">
                       <div align="left" class="style9 style5"><strong><?php echo $job_specification; ?></strong></div>
-                    </td>
+                    </td> -->
 
                     <td class="style3">
                       <div align="left" class="style9 style5"><strong><a href="DeleteJob.php?JobId=<?php echo $Id; ?>">Delete</a></strong></div>
